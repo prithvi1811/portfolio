@@ -197,7 +197,7 @@ export default function Resume() {
           </a>
 
           <a
-            href="https://linkedin.com/in/prithvichauhan"
+            href="https://www.linkedin.com/in/prithvishaktichauhan/"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 text-zinc-300 hover:text-white"
