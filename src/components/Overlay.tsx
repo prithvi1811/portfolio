@@ -83,7 +83,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
               </Link>
 
               <Link
-                href="https://github.com/prithvi1811/github-repo-ai-chatbot"
+href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
