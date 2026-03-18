@@ -1,85 +1,127 @@
-'use client';
+"use client";
 
-import { motion, MotionValue, useTransform } from 'framer-motion';
+import Link from "next/link";
+import { motion, MotionValue, useTransform } from "framer-motion";
 
 interface OverlayProps {
   scrollYProgress: MotionValue<number>;
 }
 
-export default function Overlay({ scrollYProgress }: OverlayProps) {
-  const opacity1 = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1, 0]);
-  const y1 = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
+const metrics = [
+  { value: "$2M+", label: "Revenue Impact" },
+  { value: "15%", label: "Conversion Lift" },
+  { value: "5", label: "Global Markets" },
+  { value: "40%", label: "Reporting Reduction" },
+];
 
-  const opacity2 = useTransform(scrollYProgress, [0.2, 0.3, 0.4, 0.5], [0, 1, 1, 0]);
-  const y2 = useTransform(scrollYProgress, [0.2, 0.5], [50, -50]);
-
-  const opacity3 = useTransform(scrollYProgress, [0.5, 0.6, 0.7, 0.8], [0, 1, 1, 0]);
-  const y3 = useTransform(scrollYProgress, [0.5, 0.8], [50, -50]);
-
+function LabelTag({ text }: { text: string }) {
   return (
-    <div className="absolute inset-0 z-10 pointer-events-none">
-      <motion.div
-        style={{ opacity: opacity1, y: y1 }}
-        className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
-      >
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white">
-          Prithvi Chauhan
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg md:text-2xl text-zinc-300">
-          Product Manager building data-driven and AI-powered products
-        </p>
-        <p className="mt-4 max-w-3xl text-sm md:text-lg text-zinc-400">
-          I build marketplace, analytics, and AI-assisted products that improve revenue,
-          decision-making, and operational efficiency.
-        </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm md:text-base text-zinc-300">
-          <span>$2M+ revenue impact</span>
-          <span>•</span>
-          <span>15% conversion lift</span>
-          <span>•</span>
-          <span>35% efficiency gain</span>
-          <span>•</span>
-          <span>5 global market launches</span>
-        </div>
-        <a
-          href="/resume/Prithvi_Chauhan_Resume.pdf"
-          download="Prithvi_Chauhan_Resume.pdf"
-          className="mt-8 px-8 py-3 rounded-full bg-white text-black font-semibold transition hover:scale-105 pointer-events-auto"
-        >
-          Download Resume
-        </a>
-      </motion.div>
-
-      <motion.div
-        style={{ opacity: opacity2, y: y2 }}
-        className="absolute inset-0 flex items-center justify-start p-8 md:p-24"
-      >
-        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
-          Driving <span className="italic font-light text-zinc-300">data-driven</span>
-          <span className="text-2xl md:text-3xl text-zinc-400 mt-4 block font-normal">
-            product decisions
-          </span>
-        </h2>
-      </motion.div>
-
-      <motion.div
-        style={{ opacity: opacity3, y: y3 }}
-        className="absolute inset-0 flex items-center justify-end p-8 md:p-24 lg:p-32 text-right"
-      >
-        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white">
-          Building <span className="text-zinc-400">AI-powered</span> product systems
-          <span className="text-2xl md:text-3xl text-zinc-400 mt-4 block font-normal">
-            with LLMs, data, and automation
-          </span>
-        </h2>
-      </motion.div>
+    <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-300 backdrop-blur-sm">
+      {text}
     </div>
   );
 }
 
+export default function Overlay({ scrollYProgress }: OverlayProps) {
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.22, 0.32], [1, 1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 0.32], [0, -80]);
 
+  const secondOpacity = useTransform(
+    scrollYProgress,
+    [0.24, 0.36, 0.56, 0.68],
+    [0, 1, 1, 0]
+  );
+  const secondY = useTransform(scrollYProgress, [0.24, 0.68], [80, -80]);
 
+  const thirdOpacity = useTransform(
+    scrollYProgress,
+    [0.6, 0.72, 0.92, 1],
+    [0, 1, 1, 1]
+  );
+  const thirdY = useTransform(scrollYProgress, [0.6, 1], [80, 0]);
 
+  return (
+    <div className="pointer-events-none fixed inset-0 z-20">
+      <div className="relative h-full w-full">
+        <motion.section
+          style={{ opacity: heroOpacity, y: heroY }}
+          className="absolute inset-0 flex items-center justify-center px-6"
+        >
+          <div className="pointer-events-auto mx-auto max-w-6xl text-center">
+            <LabelTag text="Marketplace · Platform · AI Products" />
 
+            <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+              Prithvi Chauhan
+            </h1>
 
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+              I ship marketplace products that move revenue — and build AI
+              systems that make teams faster.
+            </p>
 
+            <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+              {metrics.map((metric) => (
+                <div
+                  key={metric.label}
+                  className="rounded-2xl border border-white/10 bg-black/30 p-5 backdrop-blur-md"
+                >
+                  <div className="text-2xl font-semibold text-white">
+                    {metric.value}
+                  </div>
+                  <div className="mt-1 text-sm text-zinc-400">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10">
+              <Link
+                href="/resume/Prithvi_Chauhan_Resume.pdf"
+                target="_blank"
+                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90"
+              >
+                Download Resume
+              </Link>
+            </div>
+          </div>
+        </motion.section>
+
+        <motion.section
+          style={{ opacity: secondOpacity, y: secondY }}
+          className="absolute inset-0 flex items-center justify-center px-6"
+        >
+          <div className="mx-auto max-w-4xl text-center">
+            <LabelTag text="Marketplace · Enterprise Integrations · International Scale" />
+
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+              Turning ambiguous problems into shipped, measurable features
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+              From A/B-tested UX improvements at Copart to launching across 5
+              international markets — I own the full product lifecycle end-to-end.
+            </p>
+          </div>
+        </motion.section>
+
+        <motion.section
+          style={{ opacity: thirdOpacity, y: thirdY }}
+          className="absolute inset-0 flex items-center justify-center px-6"
+        >
+          <div className="mx-auto max-w-4xl text-center">
+            <LabelTag text="LLMs · RAG · Vector Search · LangChain" />
+
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+              Building AI-native product systems with hands-on prototyping
+              experience
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+              Not just a PM who understands AI — I&apos;ve built a working RAG
+              chatbot with Llama3, LangChain, and vector embeddings from scratch.
+            </p>
+          </div>
+        </motion.section>
+      </div>
+    </div>
+  );
+}
