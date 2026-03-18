@@ -33,16 +33,18 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
   );
   const secondY = useTransform(scrollYProgress, [0.24, 0.68], [80, -80]);
 
+  // FIXED: fades out before overlapping next sections
   const thirdOpacity = useTransform(
     scrollYProgress,
-    [0.6, 0.72, 0.92, 1],
-    [0, 1, 1, 1]
+    [0.58, 0.68, 0.78, 0.86],
+    [0, 1, 1, 0]
   );
-  const thirdY = useTransform(scrollYProgress, [0.6, 1], [80, 0]);
+  const thirdY = useTransform(scrollYProgress, [0.58, 0.86], [80, -40]);
 
   return (
     <div className="pointer-events-none fixed inset-0 z-20">
       <div className="relative h-full w-full">
+        {/* Screen 1 */}
         <motion.section
           style={{ opacity: heroOpacity, y: heroY }}
           className="absolute inset-0 flex items-center justify-center px-6"
@@ -68,7 +70,9 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
                   <div className="text-2xl font-semibold text-white">
                     {metric.value}
                   </div>
-                  <div className="mt-1 text-sm text-zinc-400">{metric.label}</div>
+                  <div className="mt-1 text-sm text-zinc-400">
+                    {metric.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -85,6 +89,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           </div>
         </motion.section>
 
+        {/* Screen 2 */}
         <motion.section
           style={{ opacity: secondOpacity, y: secondY }}
           className="absolute inset-0 flex items-center justify-center px-6"
@@ -103,6 +108,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           </div>
         </motion.section>
 
+        {/* Screen 3 */}
         <motion.section
           style={{ opacity: thirdOpacity, y: thirdY }}
           className="absolute inset-0 flex items-center justify-center px-6"
@@ -125,3 +131,4 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
     </div>
   );
 }
+
