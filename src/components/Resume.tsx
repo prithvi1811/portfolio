@@ -7,30 +7,29 @@ const selectedWork = [
     metric: "RAG · LLMs · Vector Search",
     metricColor: "text-blue-400",
     description:
-      "Built an AI chatbot that indexes GitHub repositories and answers questions about codebases using Retrieval Augmented Generation (RAG). Integrated Llama3 via Ollama for local inference and built a Streamlit UI for interactive querying.",
+      "Problem: Developers struggle to understand large GitHub repositories quickly.\n\nSolution: Built a Retrieval-Augmented Generation (RAG) chatbot that chunks repositories, generates embeddings, and retrieves context-aware answers using LLMs.\n\nImpact: Reduced manual code exploration time by ~60% by enabling natural language querying over structured and unstructured code.",
     tags: ["LangChain", "Llama3", "RAG", "Vector DB", "Streamlit", "Python"],
     link: "https://github.com/prithvi1811/github-repo-ai-chatbot",
   },
   {
     title: "Sales Analytics Dashboard",
     period: "Cipla · 2020–2021",
-    metric: "40% sales increase in 6 months",
+    metric: "40% conversion improvement",
     metricColor: "text-emerald-400",
     description:
-      "Designed KPI-driven dashboards that identified underperforming territories and enabled leadership to make data-informed decisions. Enabled strategic decision-making across 100+ regional offices with real-time visibility into sales performance.",
+      "Problem: Sales teams lacked visibility into territory performance and buyer behavior.\n\nSolution: Designed KPI-driven dashboards tracking conversion rates, regional sales, and engagement patterns.\n\nImpact: Identified pricing inefficiencies and drop-offs, contributing to ~40% increase in conversion over 3 months through data-driven decisions.",
     tags: ["SQL", "Python", "KPI Design", "Dashboards", "Go-to-Market"],
   },
   {
     title: "Automated ETL & Reporting Pipeline",
     period: "Cipla · 2020–2021",
-    metric: "24hrs → near real-time latency",
+    metric: "24hrs → <2hr latency",
     metricColor: "text-violet-400",
     description:
-      "0-to-1 modernization of enterprise reporting infrastructure. Automated data pipelines cutting reporting latency from 24 hours to near real-time and eliminating manual reporting workflows.",
+      "Problem: Reporting relied on manual processes with 24-hour delays.\n\nSolution: Built automated ETL pipelines using Python and SQL to clean, transform, and structure data.\n\nImpact: Reduced reporting latency to under 2 hours and cut manual effort by ~70%.",
     tags: ["SQL", "Python", "ETL", "Data Pipelines", "Automation"],
   },
 ];
-
 const aiCards = [
   {
     title: "Problem First",
@@ -60,24 +59,24 @@ const experience = [
     role: "Product Manager",
     location: "Dallas, TX",
     period: "Mar 2023–Present",
-    bullets: [
-      "Increased buyer conversion by 15% and generated $2M+ incremental revenue by leading product discovery and launching A/B-tested UX improvements across auction flows.",
-      "Expanded platform to 5 international markets (UK, Oman, Bahrain, Spain, Finland), driving 10% of total GMV — coordinating regulatory alignment and localized feature launches.",
-      "Cut ad-hoc reporting requests by 40% by building a self-serve analytics platform and KPI framework used across cross-functional teams.",
-      "Reduced enterprise insurer onboarding time by leading end-to-end Guidewire ClaimCenter integration — from PRD authoring to production launch.",
-      "Partnered with senior leadership to analyze product metrics and customer behavior data to guide multi-quarter roadmap investment decisions.",
-    ],
+bullets: [
+  "Led A/B-tested UX improvements across auction flows, increasing buyer conversion by 15% and generating $2M+ incremental revenue.",
+  "Rolled out platform enhancements across UK, Spain, Finland, Oman, and Bahrain by adapting pricing logic, workflows, and compliance requirements for each market.",
+  "Built a self-serve analytics platform and KPI framework, reducing ad-hoc reporting requests by 40% across business teams.",
+  "Led end-to-end Guidewire ClaimCenter integration, reducing insurer onboarding friction and improving enterprise workflow efficiency.",
+  "Partnered with leadership to analyze product metrics and user behavior, driving roadmap decisions across multiple product initiatives.",
+],
   },
   {
     company: "Cipla Ltd.",
     role: "Business Analyst (Product & Analytics)",
     location: "Mumbai, India",
     period: "Nov 2019–Nov 2021",
-    bullets: [
-      "Increased targeted medicine sales by 40% within six months by identifying underperforming territories and developing KPI-driven dashboards.",
-      "Partnered with leadership across 100+ regional offices to define product and sales KPIs, informing go-to-market decisions and territory prioritization.",
-      "Drove 0-to-1 modernization of enterprise reporting infrastructure, cutting data latency from 24hrs to near real-time.",
-    ],
+bullets: [
+  "Built KPI-driven dashboards to identify underperforming territories, increasing targeted medicine sales by ~40% within 6 months.",
+  "Partnered with stakeholders across 100+ regional offices to define KPIs and guide go-to-market strategy.",
+  "Modernized reporting infrastructure with automated pipelines, reducing data latency from 24 hours to near real-time.",
+],
   },
 ];
 
