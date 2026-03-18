@@ -1,82 +1,102 @@
 import Link from "next/link";
 
-const selectedWork = [
-  {
-    title: "GitHub Repository AI Chatbot",
-    period: "Personal Project · 2024",
-    metric: "RAG · LLMs · Vector Search",
-    metricColor: "text-blue-400",
-    description:
-      "Problem: Developers struggle to understand large GitHub repositories quickly.\n\nSolution: Built a Retrieval-Augmented Generation (RAG) chatbot that chunks repositories, generates embeddings, and retrieves context-aware answers using LLMs.\n\nImpact: Reduced manual code exploration time by ~60% by enabling natural language querying over structured and unstructured code.",
-    tags: ["LangChain", "Llama3", "RAG", "Vector DB", "Streamlit", "Python"],
-    link: "https://github.com/prithvi1811/github-repo-ai-chatbot",
-  },
-  {
-    title: "Sales Analytics Dashboard",
-    period: "Cipla · 2020–2021",
-    metric: "40% conversion improvement",
-    metricColor: "text-emerald-400",
-    description:
-      "Problem: Sales teams lacked visibility into territory performance and buyer behavior.\n\nSolution: Designed KPI-driven dashboards tracking conversion rates, regional sales, and engagement patterns.\n\nImpact: Identified pricing inefficiencies and drop-offs, contributing to ~40% increase in conversion over 3 months through data-driven decisions.",
-    tags: ["SQL", "Python", "KPI Design", "Dashboards", "Go-to-Market"],
-  },
-  {
-    title: "Automated ETL & Reporting Pipeline",
-    period: "Cipla · 2020–2021",
-    metric: "24hrs → <2hr latency",
-    metricColor: "text-violet-400",
-    description:
-      "Problem: Reporting relied on manual processes with 24-hour delays.\n\nSolution: Built automated ETL pipelines using Python and SQL to clean, transform, and structure data.\n\nImpact: Reduced reporting latency to under 2 hours and cut manual effort by ~70%.",
-    tags: ["SQL", "Python", "ETL", "Data Pipelines", "Automation"],
-  },
-];
-const aiCards = [
-  {
-    title: "Problem First",
-    description:
-      "I start with the bottleneck, not the model. The best AI products solve a painful workflow problem instead of adding AI for its own sake.",
-  },
-  {
-    title: "Workflow Fit",
-    description:
-      "AI has to fit naturally into how people already work. I look for places where it speeds up decisions, reduces manual effort, or improves quality without creating friction.",
-  },
-  {
-    title: "Trust & Quality",
-    description:
-      "Outputs need to be useful, explainable, and reliable enough for real teams to adopt. I care about grounding, feedback loops, and clear failure handling.",
-  },
-  {
-    title: "Measure Impact",
-    description:
-      "I think about AI features like product features: define the success metric, instrument the workflow, and validate whether it improves business outcomes.",
-  },
-];
-
 const experience = [
   {
     company: "Copart",
     role: "Product Manager",
     location: "Dallas, TX",
     period: "Mar 2023–Present",
-bullets: [
-  "Led A/B-tested UX improvements across auction flows, increasing buyer conversion by 15% and generating $2M+ incremental revenue.",
-  "Rolled out platform enhancements across UK, Spain, Finland, Oman, and Bahrain by adapting pricing logic, workflows, and compliance requirements for each market.",
-  "Built a self-serve analytics platform and KPI framework, reducing ad-hoc reporting requests by 40% across business teams.",
-  "Led end-to-end Guidewire ClaimCenter integration, reducing insurer onboarding friction and improving enterprise workflow efficiency.",
-  "Partnered with leadership to analyze product metrics and user behavior, driving roadmap decisions across multiple product initiatives.",
-],
+    bullets: [
+      "Identified drop-offs across key auction flow steps through funnel analysis and buyer behavior reviews, then led A/B-tested UX improvements that increased buyer conversion by 15% and generated $2M+ in incremental revenue.",
+      "Led rollout of platform enhancements across UK, Oman, Bahrain, Spain, and Finland by adapting pricing logic, seller workflows, and compliance-sensitive requirements for each market, helping these launches contribute roughly 10% of total GMV.",
+      "Built a self-serve analytics layer and KPI framework for cross-functional teams, reducing ad-hoc reporting requests by 40% and speeding up decision-making for product, operations, and leadership stakeholders.",
+      "Owned end-to-end delivery for Guidewire ClaimCenter integration work, from requirements and PRD definition through launch coordination, reducing insurer onboarding friction and improving enterprise workflow efficiency.",
+      "Partnered with senior leadership to analyze product metrics, customer behavior, and business performance trends to shape roadmap priorities and support multi-quarter platform investment decisions.",
+    ],
   },
   {
     company: "Cipla Ltd.",
     role: "Business Analyst (Product & Analytics)",
     location: "Mumbai, India",
     period: "Nov 2019–Nov 2021",
-bullets: [
-  "Built KPI-driven dashboards to identify underperforming territories, increasing targeted medicine sales by ~40% within 6 months.",
-  "Partnered with stakeholders across 100+ regional offices to define KPIs and guide go-to-market strategy.",
-  "Modernized reporting infrastructure with automated pipelines, reducing data latency from 24 hours to near real-time.",
-],
+    bullets: [
+      "Diagnosed underperformance across territories by analyzing sales trends, rep productivity, and regional demand signals, then built KPI-driven dashboards that helped drive a ~40% increase in targeted medicine sales within 6 months.",
+      "Worked with stakeholders across 100+ regional offices to define business-critical KPIs, improve visibility into field performance, and support go-to-market and territory prioritization decisions.",
+      "Modernized reporting workflows by building automated SQL and Python pipelines that reduced data latency from 24 hours to near real-time and removed significant manual reporting effort.",
+    ],
+  },
+];
+
+const selectedWork = [
+  {
+    title: "GitHub Repository AI Chatbot",
+    period: "Personal Project · 2024",
+    metric: "RAG · LLMs · Vector Search",
+    metricColor: "text-blue-400",
+    summary:
+      "Built a working RAG chatbot that answers questions from GitHub repositories.",
+    details: [
+      "Problem: Developers often spend too much time manually exploring unfamiliar codebases before they can answer even basic architecture or logic questions.",
+      "What I built: A Retrieval-Augmented Generation workflow that ingests repository content, chunks code and documentation, creates vector embeddings, retrieves relevant context, and generates grounded answers through an LLM-powered chat interface.",
+      "How: Used LangChain orchestration, Llama3 via Ollama for inference, vector search for retrieval, and Streamlit for the interface.",
+      "Impact: Reduced manual code exploration time by roughly 60% for common repo understanding tasks and created a strong hands-on prototype of an AI-native product workflow.",
+    ],
+    tags: ["LangChain", "Llama3", "RAG", "Vector Search", "Streamlit", "Python"],
+    link: "https://github.com/prithvi1811/github-repo-ai-chatbot",
+    linkLabel: "View GitHub",
+  },
+  {
+    title: "Sales Analytics Dashboard",
+    period: "Cipla · 2020–2021",
+    metric: "~40% sales lift in 6 months",
+    metricColor: "text-emerald-400",
+    summary:
+      "Built KPI-driven dashboards that turned regional sales data into actionable decisions.",
+    details: [
+      "Problem: Sales leadership lacked a clear view into which territories were underperforming and where conversion or adoption was breaking down.",
+      "What I built: A dashboard suite tracking regional performance, product mix, territory-level trends, and sales KPIs to give leadership a real-time view into where interventions were needed.",
+      "How: Combined SQL, Python, and reporting logic to structure data for ongoing business reviews and sales planning.",
+      "Impact: Helped identify territory inefficiencies and prioritize action areas, contributing to an approximately 40% increase in targeted medicine sales over 6 months.",
+    ],
+    tags: ["SQL", "Python", "Dashboards", "KPI Design", "Go-to-Market"],
+  },
+  {
+    title: "Automated ETL & Reporting Pipeline",
+    period: "Cipla · 2020–2021",
+    metric: "24 hrs → under 2 hrs",
+    metricColor: "text-violet-400",
+    summary:
+      "Rebuilt reporting infrastructure to move from manual reporting to automated data delivery.",
+    details: [
+      "Problem: Reporting workflows depended heavily on manual processing, causing delays, inconsistency, and slower business response times.",
+      "What I built: An automated ETL pipeline to ingest, clean, transform, and publish business data into structured reporting tables for downstream dashboarding and analysis.",
+      "How: Used Python and SQL to automate repeatable data preparation logic and remove manual spreadsheet-based steps.",
+      "Impact: Reduced reporting latency from 24 hours to under 2 hours and cut manual effort by about 70%, making operational data far more usable for decision-making.",
+    ],
+    tags: ["SQL", "Python", "ETL", "Data Pipelines", "Automation"],
+  },
+];
+
+const aiCards = [
+  {
+    title: "Problem First",
+    description:
+      "I start with the user bottleneck, not the model. The strongest AI products solve a real workflow problem instead of adding AI for novelty.",
+  },
+  {
+    title: "Workflow Fit",
+    description:
+      "I look for places where AI can reduce friction, speed up decisions, or remove repetitive work without forcing people into a totally new process.",
+  },
+  {
+    title: "Trust & Quality",
+    description:
+      "AI output only matters if users can rely on it. I care about grounding, retrieval quality, failure handling, and making outputs usable in real-world decisions.",
+  },
+  {
+    title: "Measure Impact",
+    description:
+      "I treat AI like any product investment: define the success metric, instrument the experience, and validate whether the system actually improves business outcomes.",
   },
 ];
 
@@ -159,89 +179,16 @@ export default function Resume() {
       <div className="mx-auto max-w-6xl space-y-20">
         <div>
           <SectionTitle
-            eyebrow="Portfolio"
-            title="Selected Work"
-            description="A mix of AI prototyping, analytics, and platform work across product and data."
+            eyebrow="Career"
+            title="Experience"
+            description="Marketplace, analytics, and enterprise platform work across product, operations, and decision systems."
           />
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            {selectedWork.map((project) => (
-              <div
-                key={project.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 shadow-sm"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                    <p className="mt-1 text-sm text-zinc-400">{project.period}</p>
-                  </div>
-                </div>
-
-                <p className={`mt-4 text-sm font-medium ${project.metricColor}`}>
-                  {project.metric}
-                </p>
-
-                <p className="mt-4 text-sm leading-7 text-zinc-300">
-                  {project.description}
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-xs text-zinc-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {project.link ? (
-                  <div className="mt-6">
-                    <Link
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm font-medium text-blue-400 transition hover:text-blue-300"
-                    >
-                      View GitHub →
-                    </Link>
-                  </div>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <SectionTitle
-            eyebrow="AI Product Thinking"
-            title="How I Think About AI Products"
-          />
-
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {aiCards.map((card) => (
-              <div
-                key={card.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6"
-              >
-                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">
-                  {card.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <SectionTitle eyebrow="Career" title="Experience" />
 
           <div className="space-y-6">
             {experience.map((item) => (
               <div
                 key={`${item.company}-${item.role}`}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6"
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
               >
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
@@ -267,13 +214,94 @@ export default function Resume() {
         </div>
 
         <div>
+          <SectionTitle
+            eyebrow="Portfolio"
+            title="Selected Work"
+            description="Projects that show how I think through product problems, build prototypes, and create measurable business value."
+          />
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {selectedWork.map((project) => (
+              <div
+                key={project.title}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 shadow-sm transition hover:border-zinc-700"
+              >
+                <div>
+                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                  <p className="mt-1 text-sm text-zinc-400">{project.period}</p>
+                </div>
+
+                <p className={`mt-4 text-sm font-medium ${project.metricColor}`}>
+                  {project.metric}
+                </p>
+
+                <p className="mt-4 text-sm leading-7 text-zinc-200">
+                  {project.summary}
+                </p>
+
+                <div className="mt-4 space-y-3 text-sm leading-7 text-zinc-400">
+                  {project.details.map((detail) => (
+                    <p key={detail}>{detail}</p>
+                  ))}
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-xs text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {project.link ? (
+                  <div className="mt-6">
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-medium text-blue-400 transition hover:text-blue-300"
+                    >
+                      {project.linkLabel} →
+                    </Link>
+                  </div>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <SectionTitle
+            eyebrow="AI Product Thinking"
+            title="How I Think About AI Products"
+          />
+
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {aiCards.map((card) => (
+              <div
+                key={card.title}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+              >
+                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                  {card.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
           <SectionTitle eyebrow="Capabilities" title="Skills" />
 
           <div className="grid gap-6 md:grid-cols-3">
             {skillColumns.map((column) => (
               <div
                 key={column.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6"
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
               >
                 <h3 className="text-lg font-semibold text-white">{column.title}</h3>
                 <ul className="mt-4 space-y-3 text-sm text-zinc-300">
@@ -293,7 +321,7 @@ export default function Resume() {
             {education.map((item) => (
               <div
                 key={item.school}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6"
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
               >
                 <h3 className="text-lg font-semibold text-white">{item.school}</h3>
                 <p className="mt-2 text-sm text-zinc-300">{item.degree}</p>
