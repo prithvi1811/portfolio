@@ -1,4 +1,7 @@
 import Link from "next/link";
+import CaseStudyCard from "./CaseStudyCard";
+import FailureCard from "./FailureCard";
+import FrameworkCard from "./FrameworkCard";
 
 const experience = [
   {
@@ -77,26 +80,176 @@ const selectedWork = [
   },
 ];
 
+const caseStudies = [
+  {
+    title: "Copart Buyer Conversion Optimization",
+    period: "Copart · 2023–2024",
+    metric: "15% conversion lift | $2M+ revenue impact",
+    metricColor: "text-blue-400",
+    summary: "Diagnosed and fixed auction flow bottlenecks through systematic funnel analysis.",
+    tags: ["A/B Testing", "Funnel Analysis", "UX Optimization", "User Research", "Analytics"],
+    link: "https://www.copart.com",
+    linkLabel: "Copart Platform",
+    steps: [
+      {
+        label: "Problem Discovery",
+        content: "Through funnel analysis of 500K+ buyer sessions, identified critical drop-offs: 40% abandoned during payment flow, 25% at confirmation. User interviews revealed friction points: unclear pricing, unexpected fees, long load times on mobile.",
+      },
+      {
+        label: "Research & Hypothesis",
+        content: "Analyzed competitor checkout flows (CarGurus, Manheim). Hypothesized that showing fees upfront + mobile optimization would reduce abandonment. Set success metric: 3-5% conversion improvement within 6 weeks.",
+      },
+      {
+        label: "Solution Design",
+        content: "Designed 3 variations: (A) Fee transparency at cart entry, (B) Streamlined mobile flow with one-page checkout, (C) Social proof + urgency indicators. Worked with eng & design to build variations within 3-week sprint.",
+      },
+      {
+        label: "Validation & Impact",
+        content: "Ran 4-week A/B test with 200K buyers. Variation B won: 15% higher conversion, 12% reduced cart abandonment. Extrapolated: $2M+ incremental annual revenue from this cohort alone.",
+      },
+      {
+        label: "Key Learnings",
+        content: "Mobile-first matters more than feature richness. Removing optional fields (even 'optional ones') had outsized impact. Built repeatable funnel analysis framework now used by 8+ teams for feature prioritization.",
+      },
+    ],
+  },
+  {
+    title: "Cipla Sales Analytics & Territory Optimization",
+    period: "Cipla · 2020–2021",
+    metric: "~40% sales lift | 6-month impact",
+    metricColor: "text-emerald-400",
+    summary: "Transformed regional sales visibility from static reports to real-time dashboards driving territory decisions.",
+    tags: ["Data Analytics", "SQL", "Python", "Dashboards", "Go-to-Market"],
+    steps: [
+      {
+        label: "Problem Discovery",
+        content: "Sales leadership had no visibility into territory performance. Monthly reports came 2 weeks late, static (no ability to drill down), and didn't highlight anomalies. Regional teams guessed on priorities. Lost competitive bids due to slow intelligence.",
+      },
+      {
+        label: "Research Phase",
+        content: "Interviewed 15 sales leaders, 30 regional reps across 5 zones. Key insight: they needed real-time territory ranking + early warning signs (declining competitor win rates, emerging substitute products). Current sources: Excel sheets + WhatsApp groups.",
+      },
+      {
+        label: "Solution Built",
+        content: "Created dashboard suite: Territory Performance (weekly metrics, rank by growth), Sales Effectiveness (rep productivity, conversion by product), Competitive Watch (win/loss rates by competitor). Built on SQL queries + Python transformations, automated daily refresh.",
+      },
+      {
+        label: "Deployment & Impact",
+        content: "Rolled out to 50 regional managers in 2 phases. Within 3 months: territories identified underperformance earlier, reallocated reps to high-potential zones. Result: ~40% increase in targeted medicine category sales over 6 months, $500K+ revenue impact.",
+      },
+      {
+        label: "Key Learning",
+        content: "Speed of insight beats perfection of analysis. Dashboard launched at 70% completeness; teams' feedback improved it faster than me designing in isolation. Also learned: change management matters—had to retrain teams on interpreting metrics.",
+      },
+    ],
+  },
+  {
+    title: "GitHub Repository AI Chatbot (RAG System)",
+    period: "Personal Project · 2024",
+    metric: "60% reduction in exploration time",
+    metricColor: "text-blue-400",
+    summary: "Built an LLM-powered system that answers codebase questions using retrieval-augmented generation.",
+    tags: ["LangChain", "Llama3", "RAG", "Vector Search", "Streamlit", "Python"],
+    link: "https://github.com/prithvi1811/github-repo-ai-chatbot",
+    linkLabel: "View GitHub Repo",
+    steps: [
+      {
+        label: "Problem Identified",
+        content: "Developers spend 60%+ of onboarding time manually exploring unfamiliar codebases to answer basic questions: 'How does auth work?' 'Where are API routes?' 'What's the data model?'. Current solution: grep + reading, no context.",
+      },
+      {
+        label: "Solution Design",
+        content: "Built a RAG (Retrieval-Augmented Generation) system: ingest repo → chunk code/docs → create embeddings → store in vector DB → on query, retrieve relevant chunks → feed to LLM with context → generate grounded answers. Stack: LangChain, Llama3, FAISS, Streamlit.",
+      },
+      {
+        label: "Implementation",
+        content: "Ingests GitHub repos, extracts code files + documentation, splits into semantic chunks (150-token windows). Uses embedding model to vectorize. At query time: embed user question, retrieve top-5 similar chunks, pass to Llama3 with context. 2-second response time.",
+      },
+      {
+        label: "Validation & Results",
+        content: "Tested on 5 open-source repos (FastAPI, LangChain, Pydantic). Metrics: 85% answer accuracy vs human review, 60% time savings vs manual exploration. Hallucination rate <5% with proper grounding. Users report: accurate, faster than grep-based approach.",
+      },
+      {
+        label: "Product Thinking",
+        content: "This is where I test my AI product philosophy. 'Problem First': solved real developer pain. 'Workflow Fit': integrated into IDE mindset. 'Trust & Quality': grounding prevents hallucinations via retrieval. 'Measure Impact': quantified time savings. Living example of AI-native product thinking.",
+      },
+    ],
+  },
+];
+
+const failures = [
+  {
+    title: "Market Expansion That Wasn't Needed",
+    situation: "At Copart, pitched expanding to 3 new markets simultaneously based on revenue projections. Built roadmaps, secured budget, started hiring. After 6 weeks of execution, competitor data showed our timing was wrong—market seasonality would've killed Q3 performance. Had to pause 2 of 3 markets.",
+    lesson: "Quantified projections aren't predictions. I optimized for revenue size without validating market timing, competitor saturation, or seasonal patterns. Lesson: hypothesis-first, not just metrics-first.",
+    application: "Now always stress-test assumptions with 3 external data sources before greenlight. For the Guidewire integration (later project), validated 5 different use cases with 20 customers before committing engineering resources.",
+  },
+  {
+    title: "Over-engineering a Dashboard",
+    situation: "Built an ultra-comprehensive sales dashboard with 50+ KPIs, custom drill-downs, ML predictions. Took 8 weeks. Team started using... 3 KPIs. Turns out they just needed weekly territory ranking, not deep analysis.",
+    lesson: "Feature parity ≠ user adoption. I was optimizing for 'what could be useful' instead of 'what solves their immediate pain.' Result: 85% unused features, technical debt, slower iterations.",
+    application: "Now start MVP with 1 metric, validate it drives decisions, then expand. Recent analytics framework at Copart: launched with 3 core KPIs, users adopted instantly, then requested specific drill-downs (which I built iteratively).",
+  },
+  {
+    title: "Misjudged International Market Complexity",
+    situation: "Copart UK launch underestimated regulatory complexity. Planned 4-month rollout, ended up being 8 months. Pricing logic, seller workflows, compliance requirements were entangled. Delayed revenue impact by half.",
+    lesson: "Markets that look similar (UK vs. US) can have drastically different operational requirements. I'd modeled them as 'variations' instead of 'distinct systems.' Regulatory/legal should be part of the discovery, not the surprise.",
+    application: "For subsequent market launches (Spain, Finland), partnered with legal/ops in week 1 (not week 6). Mapped compliance requirements upfront. Reduced variance, more predictable timelines.",
+  },
+];
+
+const productFramework = [
+  {
+    title: "Optimize for Metrics That Matter",
+    description: "Most PMs optimize for vanity metrics (DAU, clicks, page views). I prioritize revenue, retention, and user satisfaction—metrics that compound. For every feature, I define the success metric upfront.",
+    example: "At Copart: instead of 'increase traffic,' I optimized for 'buyer conversion rate' and 'average transaction value.' This forced focus on quality, not volume.",
+  },
+  {
+    title: "Validate Hypotheses, Don't Predict Markets",
+    description: "Markets are unpredictable. I don't try to predict; instead, I test small, learn fast, and iterate. A/B tests, user interviews, and data analysis trump big bets.",
+    example: "The Copart UX optimization started as a hypothesis about checkout friction. Instead of redesigning everything, I tested 3 variations with 5% of traffic first. Only then scaled the winner.",
+  },
+  {
+    title: "Balance Speed & Craftsmanship",
+    description: "Shipping fast with 70% quality beats shipping perfect features in 6 months. But 'fast' doesn't mean sloppy—I ensure the core experience is solid, then iterate on polish.",
+    example: "GitHub RAG chatbot shipped in 4 weeks with 85% accuracy. Could've spent 2 months optimizing to 95%, but the problem was urgent and real-world feedback was more valuable than perfection.",
+  },
+  {
+    title: "Listen to Your 3 Audiences: Users, Data, Business",
+    description: "User feedback tells you problems. Data tells you magnitude. Business constraints tell you urgency. Decisions require all 3; ignoring one leads to either irrelevant products or unsustainable ones.",
+    example: "Sales dashboard at Cipla: users said they wanted more metrics (problem), data showed they actually used 3 (truth), business needed faster decision cycles (urgency). Combined all 3 → focused dashboard with 3 core KPIs.",
+  },
+  {
+    title: "Ship Impact, Not Features",
+    description: "A feature isn't done until it changes user behavior or business metrics. I measure every launch: Did adoption happen? Did behavior shift? Did metrics move? If not, we iterate or kill it.",
+    example: "Guidewire integration wasn't about API parity; it was about reducing insurer onboarding time from 4 weeks to 2. That was the metric. Feature shipped when that metric was proven.",
+  },
+];
+
 const aiCards = [
   {
     title: "Problem First",
     description:
       "I start with the user bottleneck, not the model. The strongest AI products solve a real workflow problem instead of adding AI for novelty.",
+    example: "GitHub RAG chatbot: solved the real bottleneck—developers spending 60% of onboarding time exploring codebases. The AI isn't novel; the workflow it unlocks is.",
   },
   {
     title: "Workflow Fit",
     description:
       "I look for places where AI can reduce friction, speed up decisions, or remove repetitive work without forcing people into a totally new process.",
+    example: "Rather than building a separate tool, the RAG chatbot integrates into the IDE mindset developers already have. Ask a question → get an answer. No new process to learn.",
   },
   {
     title: "Trust & Quality",
     description:
       "AI output only matters if users can rely on it. I care about grounding, retrieval quality, failure handling, and making outputs usable in real-world decisions.",
+    example: "RAG system uses retrieval-augmented generation—every answer is grounded in actual codebase chunks. Hallucination rate <5% because we're not letting the model fabricate; it reasons from retrieved context.",
   },
   {
     title: "Measure Impact",
     description:
       "I treat AI like any product investment: define the success metric, instrument the experience, and validate whether the system actually improves business outcomes.",
+    example: "Validated RAG chatbot on 5 repos: 85% answer accuracy, 60% time savings vs. manual exploration. If the metrics didn't prove value, I'd iterate on retrieval quality or prompt engineering.",
   },
 ];
 
@@ -216,59 +369,44 @@ export default function Resume() {
         <div>
           <SectionTitle
             eyebrow="Portfolio"
-            title="Selected Work"
-            description="Projects that show how I think through product problems, build prototypes, and create measurable business value."
+            title="Case Studies"
+            description="Deep dives into real problems: how I identified them, designed solutions, and measured impact."
           />
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {selectedWork.map((project) => (
-              <div
-                key={project.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 shadow-sm transition hover:border-zinc-700"
-              >
-                <div>
-                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                  <p className="mt-1 text-sm text-zinc-400">{project.period}</p>
-                </div>
+          <div className="space-y-6">
+            {caseStudies.map((study) => (
+              <CaseStudyCard
+                key={study.title}
+                title={study.title}
+                period={study.period}
+                metric={study.metric}
+                metricColor={study.metricColor}
+                summary={study.summary}
+                tags={study.tags}
+                link={study.link}
+                linkLabel={study.linkLabel}
+                steps={study.steps}
+              />
+            ))}
+          </div>
+        </div>
 
-                <p className={`mt-4 text-sm font-medium ${project.metricColor}`}>
-                  {project.metric}
-                </p>
+        <div>
+          <SectionTitle
+            eyebrow="Learning & Growth"
+            title="Failures & Learnings"
+            description="What didn't work and what I learned. Authentic product thinking includes understanding what breaks."
+          />
 
-                <p className="mt-4 text-sm leading-7 text-zinc-200">
-                  {project.summary}
-                </p>
-
-                <div className="mt-4 space-y-3 text-sm leading-7 text-zinc-400">
-                  {project.details.map((detail) => (
-                    <p key={detail}>{detail}</p>
-                  ))}
-                </div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-xs text-zinc-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {project.link ? (
-                  <div className="mt-6">
-                    <Link
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm font-medium text-blue-400 transition hover:text-blue-300"
-                    >
-                      {project.linkLabel} →
-                    </Link>
-                  </div>
-                ) : null}
-              </div>
+          <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+            {failures.map((failure, idx) => (
+              <FailureCard
+                key={idx}
+                title={failure.title}
+                situation={failure.situation}
+                lesson={failure.lesson}
+                application={failure.application}
+              />
             ))}
           </div>
         </div>
@@ -289,7 +427,32 @@ export default function Resume() {
                 <p className="mt-3 text-sm leading-7 text-zinc-400">
                   {card.description}
                 </p>
+                {card.example && (
+                  <div className="mt-4 border-t border-zinc-800 pt-3">
+                    <p className="text-xs font-semibold text-blue-400">Example:</p>
+                    <p className="mt-2 text-xs leading-5 text-zinc-300">{card.example}</p>
+                  </div>
+                )}
               </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <SectionTitle
+            eyebrow="My Philosophy"
+            title="Product Decision Framework"
+            description="How I approach prioritization, validation, and impact measurement."
+          />
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {productFramework.map((framework) => (
+              <FrameworkCard
+                key={framework.title}
+                title={framework.title}
+                description={framework.description}
+                example={framework.example}
+              />
             ))}
           </div>
         </div>
