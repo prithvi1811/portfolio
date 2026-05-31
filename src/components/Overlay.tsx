@@ -23,25 +23,22 @@ function LabelTag({ text }: { text: string }) {
 }
 
 export default function Overlay({ scrollYProgress }: OverlayProps) {
-  // Hero: fully invisible at 0.25 before second appears
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.25], [0, -120]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.22, 0.32], [1, 1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 0.32], [0, -80]);
 
-  // Second: starts after hero is completely gone (0.27), ends before third appears (0.67)
   const secondOpacity = useTransform(
     scrollYProgress,
-    [0.27, 0.35, 0.55, 0.67],
+    [0.24, 0.36, 0.56, 0.68],
     [0, 1, 1, 0]
   );
-  const secondY = useTransform(scrollYProgress, [0.27, 0.67], [120, -120]);
+  const secondY = useTransform(scrollYProgress, [0.24, 0.68], [80, -80]);
 
-  // Third: starts after second is completely gone (0.69), ends at 0.95
   const thirdOpacity = useTransform(
     scrollYProgress,
-    [0.69, 0.76, 0.82, 0.95],
+    [0.58, 0.68, 0.78, 0.86],
     [0, 1, 1, 0]
   );
-  const thirdY = useTransform(scrollYProgress, [0.69, 0.95], [120, -60]);
+  const thirdY = useTransform(scrollYProgress, [0.58, 0.86], [80, -40]);
 
   return (
     <div className="pointer-events-none fixed inset-0 z-20">
@@ -78,7 +75,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/resume/Prithvi Chauhan.pdf"
+                href="/resume/Prithvi_Chauhan_Resume.pdf"
                 target="_blank"
                 className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90"
               >
