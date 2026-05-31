@@ -159,13 +159,13 @@ function SectionTitle({
   description?: string;
 }) {
   return (
-    <div className="mb-8">
-      <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+    <div className="mb-8 sm:mb-10">
+      <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">{eyebrow}</p>
+      <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white">
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-400">
+        <p className="mt-2 sm:mt-3 max-w-3xl text-sm sm:text-base leading-6 sm:leading-7 text-zinc-400">
           {description}
         </p>
       ) : null}
@@ -175,8 +175,8 @@ function SectionTitle({
 
 export default function Resume() {
   return (
-    <section className="bg-[#121212] px-6 py-24 text-zinc-200 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-6xl space-y-20">
+    <section className="bg-[#121212] px-4 sm:px-6 lg:px-12 py-16 sm:py-20 lg:py-24 text-zinc-200">
+      <div className="mx-auto max-w-6xl space-y-16 sm:space-y-20">
         <div>
           <SectionTitle
             eyebrow="Career"
@@ -184,26 +184,26 @@ export default function Resume() {
             description="Marketplace, analytics, and enterprise platform work across product, operations, and decision systems."
           />
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {experience.map((item) => (
               <div
                 key={`${item.company}-${item.role}`}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-lg sm:rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 sm:p-6 transition hover:border-zinc-700"
               >
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white">
                       {item.role} · {item.company}
                     </h3>
-                    <p className="mt-1 text-sm text-zinc-400">{item.location}</p>
+                    <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-zinc-400">{item.location}</p>
                   </div>
-                  <p className="text-sm text-zinc-500">{item.period}</p>
+                  <p className="text-xs sm:text-sm text-zinc-500 whitespace-nowrap">{item.period}</p>
                 </div>
 
-                <ul className="mt-5 space-y-3 text-sm leading-7 text-zinc-300">
+                <ul className="mt-4 sm:mt-5 space-y-2.5 sm:space-y-3 text-xs sm:text-sm leading-6 sm:leading-7 text-zinc-300">
                   {item.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-3">
-                      <span className="mt-[10px] h-1.5 w-1.5 rounded-full bg-zinc-500" />
+                    <li key={bullet} className="flex gap-2.5 sm:gap-3">
+                      <span className="mt-[8px] sm:mt-[10px] h-1.5 w-1.5 rounded-full bg-zinc-500 flex-shrink-0" />
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -220,36 +220,36 @@ export default function Resume() {
             description="Projects that show how I think through product problems, build prototypes, and create measurable business value."
           />
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
             {selectedWork.map((project) => (
               <div
                 key={project.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 shadow-sm transition hover:border-zinc-700"
+                className="rounded-lg sm:rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 sm:p-6 shadow-sm transition hover:border-zinc-700"
               >
                 <div>
-                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                  <p className="mt-1 text-sm text-zinc-400">{project.period}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-white">{project.title}</h3>
+                  <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-zinc-400">{project.period}</p>
                 </div>
 
-                <p className={`mt-4 text-sm font-medium ${project.metricColor}`}>
+                <p className={`mt-3 sm:mt-4 text-xs sm:text-sm font-medium ${project.metricColor}`}>
                   {project.metric}
                 </p>
 
-                <p className="mt-4 text-sm leading-7 text-zinc-200">
+                <p className="mt-3 sm:mt-4 text-xs sm:text-sm leading-6 sm:leading-7 text-zinc-200">
                   {project.summary}
                 </p>
 
-                <div className="mt-4 space-y-3 text-sm leading-7 text-zinc-400">
+                <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-xs sm:text-sm leading-6 sm:leading-7 text-zinc-400">
                   {project.details.map((detail) => (
                     <p key={detail}>{detail}</p>
                   ))}
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 sm:gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-xs text-zinc-300"
+                      className="rounded-full border border-zinc-700 bg-zinc-800 px-2.5 sm:px-3 py-0.5 sm:py-1 text-xs text-zinc-300"
                     >
                       {tag}
                     </span>
@@ -257,12 +257,12 @@ export default function Resume() {
                 </div>
 
                 {project.link ? (
-                  <div className="mt-6">
+                  <div className="mt-4 sm:mt-6">
                     <Link
                       href={project.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-sm font-medium text-blue-400 transition hover:text-blue-300"
+                      className="text-xs sm:text-sm font-medium text-blue-400 transition hover:text-blue-300 active:text-blue-500"
                     >
                       {project.linkLabel} →
                     </Link>
@@ -279,14 +279,14 @@ export default function Resume() {
             title="How I Think About AI Products"
           />
 
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {aiCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-lg sm:rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 sm:p-6 transition hover:border-zinc-700"
               >
-                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                <h3 className="text-base sm:text-lg font-semibold text-white">{card.title}</h3>
+                <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-6 sm:leading-7 text-zinc-400">
                   {card.description}
                 </p>
               </div>
@@ -297,14 +297,14 @@ export default function Resume() {
         <div>
           <SectionTitle eyebrow="Capabilities" title="Skills" />
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {skillColumns.map((column) => (
               <div
                 key={column.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-lg sm:rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 sm:p-6 transition hover:border-zinc-700"
               >
-                <h3 className="text-lg font-semibold text-white">{column.title}</h3>
-                <ul className="mt-4 space-y-3 text-sm text-zinc-300">
+                <h3 className="text-base sm:text-lg font-semibold text-white">{column.title}</h3>
+                <ul className="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-xs sm:text-sm text-zinc-300">
                   {column.skills.map((skill) => (
                     <li key={skill}>{skill}</li>
                   ))}
@@ -317,29 +317,29 @@ export default function Resume() {
         <div>
           <SectionTitle eyebrow="Academics" title="Education" />
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
             {education.map((item) => (
               <div
                 key={item.school}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-lg sm:rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 sm:p-6 transition hover:border-zinc-700"
               >
-                <h3 className="text-lg font-semibold text-white">{item.school}</h3>
-                <p className="mt-2 text-sm text-zinc-300">{item.degree}</p>
-                <p className="mt-1 text-sm text-zinc-500">{item.period}</p>
+                <h3 className="text-base sm:text-lg font-semibold text-white">{item.school}</h3>
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-zinc-300">{item.degree}</p>
+                <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-zinc-500">{item.period}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <footer className="flex flex-col items-start justify-between gap-4 border-t border-zinc-800 pt-8 text-sm text-zinc-400 sm:flex-row sm:items-center">
+        <footer className="flex flex-col items-start justify-between gap-3 sm:gap-4 border-t border-zinc-800 pt-6 sm:pt-8 text-xs sm:text-sm text-zinc-400 sm:flex-row sm:items-center">
           <p>Prithvi Chauhan</p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
             <Link
               href="https://github.com/prithvi1811"
               target="_blank"
               rel="noreferrer"
-              className="transition hover:text-white"
+              className="transition hover:text-white active:text-zinc-300"
             >
               GitHub
             </Link>
@@ -347,7 +347,7 @@ export default function Resume() {
               href="https://www.linkedin.com/in/prithvishaktichauhan/"
               target="_blank"
               rel="noreferrer"
-              className="transition hover:text-white"
+              className="transition hover:text-white active:text-zinc-300"
             >
               LinkedIn
             </Link>

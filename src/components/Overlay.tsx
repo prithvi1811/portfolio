@@ -16,7 +16,7 @@ const metrics = [
 
 function LabelTag({ text }: { text: string }) {
   return (
-    <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-300 backdrop-blur-sm">
+    <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs uppercase tracking-[0.15em] text-zinc-300 backdrop-blur-sm md:px-4 md:py-2">
       {text}
     </div>
   );
@@ -50,43 +50,43 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           <div className="pointer-events-auto mx-auto max-w-6xl text-center">
             <LabelTag text="Marketplace · Platform · AI Products" />
 
-            <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-7xl">
               Prithvi Chauhan
             </h1>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-zinc-300 sm:text-lg lg:text-xl">
               I ship marketplace products that move revenue — and build AI
               systems that make teams faster.
             </p>
 
-            <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-3 sm:gap-4 sm:mt-10">
               {metrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="rounded-2xl border border-white/10 bg-zinc-900/80 p-5 backdrop-blur-md"
+                  className="rounded-xl sm:rounded-2xl border border-white/10 bg-zinc-900/50 p-3 sm:p-5 backdrop-blur-sm"
                 >
-                  <div className="text-2xl font-semibold text-white">
+                  <div className="text-lg sm:text-2xl font-semibold text-white">
                     {metric.value}
                   </div>
-                  <div className="mt-1 text-sm text-zinc-400">{metric.label}</div>
+                  <div className="mt-1 text-xs sm:text-sm text-zinc-400">{metric.label}</div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
               <Link
                 href="/resume/Prithvi_Chauhan_Resume.pdf"
                 target="_blank"
-                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-white px-6 py-3 sm:py-3.5 text-sm font-medium text-black transition hover:opacity-90 active:opacity-75 min-h-[44px]"
               >
                 Download Resume
               </Link>
 
               <Link
-href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
+                href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 sm:py-3.5 text-sm font-medium text-white transition hover:bg-white/10 active:bg-white/20 min-h-[44px]"
               >
                 View AI Demo
               </Link>
@@ -101,11 +101,11 @@ href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
           <div className="mx-auto max-w-4xl text-center">
             <LabelTag text="Marketplace · Enterprise Integrations · International Scale" />
 
-            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-6xl">
               Turning ambiguous problems into shipped, measurable features
             </h2>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-zinc-300 sm:text-lg lg:text-xl">
               From A/B-tested UX improvements at Copart to launching across 5
               international markets — I own the full product lifecycle end-to-end.
             </p>
@@ -119,12 +119,12 @@ href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
           <div className="mx-auto max-w-4xl text-center">
             <LabelTag text="LLMs · RAG · Vector Search · LangChain" />
 
-            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-6xl">
               Building AI-native product systems with hands-on prototyping
               experience
             </h2>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-zinc-300 sm:text-lg lg:text-xl">
               Not just a PM who understands AI — I&apos;ve built a working RAG
               chatbot with Llama3, LangChain, and vector embeddings from scratch.
             </p>

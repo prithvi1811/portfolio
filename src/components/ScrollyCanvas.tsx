@@ -16,17 +16,17 @@ export default function ScrollyCanvas() {
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.92, 0.8]);
 
   return (
-    <section ref={containerRef} className="relative h-[300vh] bg-black">
+    <section ref={containerRef} className="relative h-[200vh] sm:h-[250vh] lg:h-[300vh] bg-black">
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.div
           style={{ scale, opacity }}
           className="absolute inset-0"
         >
           {/* Base AI-style gradient background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(168,85,247,0.14),_transparent_30%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.10),_transparent_35%),linear-gradient(to_bottom,_#050505,_#0b0b0f,_#121212)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.15),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(168,85,247,0.12),_transparent_35%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.08),_transparent_40%),linear-gradient(to_bottom,_#050505,_#0b0b0f,_#121212)]" />
 
           {/* Grid overlay */}
-          <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]" />
+          <div className="absolute inset-0 opacity-[0.05] sm:opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]" />
 
           {/* Floating background images */}
           <img
