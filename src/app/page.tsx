@@ -1,19 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-
-const ScrollyCanvas = dynamic(() => import("@/components/ScrollyCanvas"), {
-  ssr: false,
-  loading: () => <div className="h-screen bg-black" />,
-});
-
-const Resume = dynamic(() => import("@/components/Resume"), {
-  ssr: false,
-});
+import ScrollyCanvas from "@/components/ScrollyCanvas";
+import Resume from "@/components/Resume";
 
 export default function Home() {
   return (
-    <main className="relative bg-black selection:bg-white/30 selection:text-black" suppressHydrationWarning>
+    <main className="relative bg-black selection:bg-white/30 selection:text-black">
 
       {/* Background Glow */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
