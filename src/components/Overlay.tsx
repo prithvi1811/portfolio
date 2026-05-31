@@ -23,25 +23,25 @@ function LabelTag({ text }: { text: string }) {
 }
 
 export default function Overlay({ scrollYProgress }: OverlayProps) {
-  // Hero: visible 0-30%, fades out 30-38%
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.28, 0.38], [1, 1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.38], [0, -100]);
+  // Hero: fully invisible at 0.25 before second appears
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 0.25], [0, -120]);
 
-  // Second: fades in 35-42%, visible 42-62%, fades out 62-70%
+  // Second: starts after hero is completely gone (0.27), ends before third appears (0.67)
   const secondOpacity = useTransform(
     scrollYProgress,
-    [0.33, 0.42, 0.62, 0.70],
+    [0.27, 0.35, 0.55, 0.67],
     [0, 1, 1, 0]
   );
-  const secondY = useTransform(scrollYProgress, [0.33, 0.70], [100, -100]);
+  const secondY = useTransform(scrollYProgress, [0.27, 0.67], [120, -120]);
 
-  // Third: fades in 68-74%, visible 74-84%, fades out 84-92%
+  // Third: starts after second is completely gone (0.69), ends at 0.95
   const thirdOpacity = useTransform(
     scrollYProgress,
-    [0.66, 0.74, 0.84, 0.92],
+    [0.69, 0.76, 0.82, 0.95],
     [0, 1, 1, 0]
   );
-  const thirdY = useTransform(scrollYProgress, [0.66, 0.92], [100, -50]);
+  const thirdY = useTransform(scrollYProgress, [0.69, 0.95], [120, -60]);
 
   return (
     <div className="pointer-events-none fixed inset-0 z-20">
