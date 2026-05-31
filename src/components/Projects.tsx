@@ -5,19 +5,19 @@ import { ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Aura Next',
-    date: '2024',
-    description: 'A high-performance e-commerce experience blending 3D assets with minimal typography.',
+    title: 'Buyer Conversion Optimization',
+    date: '2023–2024',
+    description: 'Increased buyer conversion by 15% through funnel analysis and UX improvements, generating $2M+ revenue impact.',
   },
   {
-    title: 'Nova UI',
-    date: '2023',
-    description: 'A design system focusing on extreme micro-interactions and smooth physics.',
+    title: 'International Marketplace Expansion',
+    date: '2023–2024',
+    description: 'Scaled auction platform to 5 new markets (UK, Oman, Bahrain, Spain, Finland), contributing 10% of total GMV.',
   },
   {
-    title: 'Nexus Studio',
-    date: '2023',
-    description: 'A WebGL-powered interactive portfolio showcasing cinematic real-time rendering.',
+    title: 'Analytics & KPI Framework',
+    date: '2023–Present',
+    description: 'Built self-serve analytics layer reducing ad-hoc reporting by 40% and accelerating cross-functional decisions.',
   },
 ];
 

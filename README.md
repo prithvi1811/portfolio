@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prithvi Chauhan — Product Manager Portfolio
+
+A modern, performant portfolio showcasing product strategy, marketplace expertise, and AI/LLM product thinking. Built with Next.js, Framer Motion, and Tailwind CSS.
+
+**Live:** [prithvichauhan.vercel.app](https://prithvichauhan.vercel.app)
+
+## About
+
+I'm a marketplace-focused Product Manager with 4+ years driving platform growth, $2M+ revenue impact, and hands-on AI/LLM prototyping experience. This portfolio highlights case studies, methodologies, and learnings from launching features at Copart and building analytics systems at Cipla.
+
+## Features
+
+- **Interactive Scrolly Hero** — Animated hero section with parallax effects and dynamic overlays
+- **Deep Case Studies** — 3 detailed PM projects with discovery process, cross-functional collaboration, and quantified impact
+- **Marketplace Strategy** — Philosophy on network effects, unit economics, and regional expansion
+- **Product Methodology** — Clear thinking on discovery, experimentation, and cross-functional collaboration
+- **Learnings Section** — Real failures and lessons learned that shaped my approach
+- **Responsive Design** — Optimized for desktop and mobile with smooth animations
+- **Dark Theme** — Modern dark interface with AI-inspired gradient backgrounds
+
+## Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org) with TypeScript
+- **Styling:** [Tailwind CSS](https://tailwindcss.com) + [Tailwind Merge](https://www.npmjs.com/package/tailwind-merge)
+- **Animations:** [Framer Motion](https://www.framer.com/motion)
+- **Icons:** [Lucide React](https://lucide.dev)
+- **Font:** [Geist](https://vercel.com/font) (Vercel's typeface)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/prithvi1811/portfolio.git
+cd portfolio
+
+# Install dependencies
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Linting
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── layout.tsx       # Root layout with globals
+│   ├── page.tsx         # Homepage
+│   └── globals.css      # Global styles
+├── components/
+│   ├── ScrollyCanvas.tsx    # Hero section with scrolly effects
+│   ├── Overlay.tsx          # Text overlays and animations
+│   ├── Resume.tsx           # Main portfolio content
+│   └── Projects.tsx         # Project showcase cards
+└── public/
+    ├── bg/              # Background images
+    ├── sequence/        # Animation sequence frames
+    └── resume/          # Resume PDF
+```
 
-## Deploy on Vercel
+## Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Updating Case Studies
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Edit the `selectedWork` array in `src/components/Resume.tsx`:
+
+```typescript
+const selectedWork = [
+  {
+    title: "Your Project",
+    period: "Company · 2024",
+    metric: "Key metric",
+    metricColor: "text-emerald-400",
+    summary: "One-line description",
+    details: ["Discovery...", "Solution...", "Impact..."],
+    tags: ["Tag1", "Tag2"],
+  },
+  // ... more projects
+];
+```
+
+### Updating Experience
+
+Edit the `experience` array in `src/components/Resume.tsx` to update your work history and achievements.
+
+### Colors & Theme
+
+Tailwind classes are used throughout. Modify `tailwind.config.ts` to customize the color scheme.
+
+## Deployment
+
+### Vercel (Recommended)
+
+The portfolio is optimized for Vercel deployment:
+
+```bash
+npm install -g vercel
+vercel
+```
+
+Or connect your GitHub repo to Vercel for automatic deploys on push.
+
+### Other Platforms
+
+This is a standard Next.js app and can be deployed to any platform that supports Node.js:
+- Netlify
+- AWS Amplify
+- Render
+- Digital Ocean
+
+## Performance
+
+- **Optimized Images:** Next.js Image component for background assets
+- **Code Splitting:** Automatic route-based code splitting
+- **CSS-in-JS:** Tailwind for minimal bundle size
+- **Animations:** GPU-accelerated with Framer Motion
+- **Fonts:** Preloaded via next/font for performance
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Contact
+
+- **Email:** prithvi.shaktichauhan@gmail.com
+- **GitHub:** [@prithvi1811](https://github.com/prithvi1811)
+- **LinkedIn:** [@prithvishaktichauhan](https://www.linkedin.com/in/prithvishaktichauhan/)

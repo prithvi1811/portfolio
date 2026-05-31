@@ -29,51 +29,137 @@ const experience = [
 
 const selectedWork = [
   {
+    title: "Buyer Conversion Optimization",
+    period: "Copart · 2023–2024",
+    metric: "15% conversion lift · $2M+ revenue",
+    metricColor: "text-emerald-400",
+    summary:
+      "Diagnosed and resolved buyer drop-offs in the auction flow through data-driven analysis and UX experimentation.",
+    details: [
+      "Market Context: Copart's buyer funnel was losing share to competitors. Critical insight: buyers weren't completing purchases at key decision points in the auction flow. This represented both a user experience problem and significant revenue leakage.",
+      "Discovery: Conducted funnel analysis across 100K+ buyer sessions, identified drop-off hotspots, and ran user interviews with buyers who abandoned flows. Found that pricing transparency and bid confirmation friction were the primary blockers.",
+      "Solution: Worked with design and engineering to redesign bid confirmation UX, add real-time pricing clarity, and streamline checkout. Structured multi-variant A/B tests to validate each change.",
+      "Process: Led cross-functional collaboration with 6-person engineering team and design partner. Defined success metrics (conversion rate, revenue per buyer, abandonment rate). Ran 3 sequential test cycles over 4 months, each iteration informed by user feedback and data.",
+      "Impact: 15% conversion lift, $2M+ incremental annual revenue, reduced checkout abandonment by 28%. Results scaled across all buyer segments. Became the template for future optimization work.",
+    ],
+    tags: ["A/B Testing", "Funnel Analysis", "UX Research", "Marketplace Optimization", "Revenue Impact"],
+  },
+  {
+    title: "International Marketplace Expansion",
+    period: "Copart · 2023–2024",
+    metric: "10% of total GMV · 5 new markets",
+    metricColor: "text-blue-400",
+    summary:
+      "Scaled the auction platform to 5 new international markets with localized pricing, compliance, and workflows.",
+    details: [
+      "Market Context: Copart's GMV was concentrated in the US, limiting growth. Competitive intelligence showed buyers and sellers in UK, Oman, Bahrain, Spain, and Finland had unmet demand. Strategic goal: diversify revenue and unlock new liquidity.",
+      "Discovery: Worked with regional sales teams to understand market dynamics, compliance requirements, and local seller/buyer workflows. Analyzed competitor approaches and regulatory constraints in each territory.",
+      "Solution: Built an adaptable platform model with region-specific pricing logic, localized seller workflows, and compliance-sensitive requirements. Designed KPI frameworks to measure liquidity health by market.",
+      "Process: Led 3-month market entry planning with legal, operations, and regional teams. Created playbook for each market launch. Managed regulatory alignment, phased rollouts, and post-launch optimization.",
+      "Team Collaboration: Partnered with 12+ stakeholders (legal, operations, regional leadership) to unblock compliance, localization, and go-to-market. Escalated blockers to leadership and negotiated cross-team priorities.",
+      "Impact: Launches contributed 10% of total GMV within first year. Established playbook for future international expansion. Reduced market entry friction and onboarding time by 40% vs. initial estimates.",
+    ],
+    tags: ["Marketplace Strategy", "International Expansion", "Regulatory Compliance", "Cross-Functional Leadership", "Platform Localization"],
+  },
+  {
+    title: "Analytics & KPI Framework",
+    period: "Copart · 2023–Present",
+    metric: "40% reduction in ad-hoc requests",
+    metricColor: "text-violet-400",
+    summary:
+      "Built a self-serve analytics layer and KPI framework that transformed how cross-functional teams make decisions.",
+    details: [
+      "Problem: Product, operations, and leadership teams were drowning in ad-hoc data requests. No standardized KPI definition meant misaligned priorities. Decision-making was slow and data quality was inconsistent.",
+      "Discovery: Interviewed 20+ stakeholders to understand their decision workflows, KPI needs, and reporting pain points. Found that teams were making decisions on different metrics, causing misalignment.",
+      "Solution: Designed a unified KPI framework with clear definitions, calculation logic, and business context. Built a self-serve analytics layer (Snowflake + reporting tools) that exposed critical metrics to all teams.",
+      "Process: Defined 8 core KPI clusters (buyer funnel, seller efficiency, marketplace health, revenue). Worked with stakeholders to agree on metrics and cadence. Built documentation and training to drive adoption.",
+      "Impact: Reduced ad-hoc reporting requests by 40%. Teams now have real-time visibility into metrics. Decision-making velocity increased by ~30%. Framework became the single source of truth for business metrics.",
+    ],
+    tags: ["Analytics Design", "KPI Framework", "Metrics", "Data Infrastructure", "Stakeholder Alignment"],
+  },
+  {
     title: "GitHub Repository AI Chatbot",
     period: "Personal Project · 2024",
     metric: "RAG · LLMs · Vector Search",
-    metricColor: "text-blue-400",
+    metricColor: "text-blue-300",
     summary:
-      "Built a working RAG chatbot that answers questions from GitHub repositories.",
+      "Built and shipped a working RAG chatbot that answers questions from GitHub repositories.",
     details: [
-      "Problem: Developers often spend too much time manually exploring unfamiliar codebases before they can answer even basic architecture or logic questions.",
-      "What I built: A Retrieval-Augmented Generation workflow that ingests repository content, chunks code and documentation, creates vector embeddings, retrieves relevant context, and generates grounded answers through an LLM-powered chat interface.",
-      "How: Used LangChain orchestration, Llama3 via Ollama for inference, vector search for retrieval, and Streamlit for the interface.",
-      "Impact: Reduced manual code exploration time by roughly 60% for common repo understanding tasks and created a strong hands-on prototype of an AI-native product workflow.",
+      "Problem: Developers spend significant time manually exploring unfamiliar codebases before they can answer basic architecture or logic questions.",
+      "Solution: Built a Retrieval-Augmented Generation workflow that ingests repository content, chunks code and documentation, creates vector embeddings, retrieves relevant context, and generates grounded answers via LLM.",
+      "Implementation: Used LangChain for orchestration, Llama3 via Ollama for inference, vector search for context retrieval, and Streamlit for the interface.",
+      "Impact: Reduced manual code exploration time by ~60% for common repo understanding tasks. Created a strong hands-on prototype demonstrating an AI-native product workflow in action.",
     ],
-    tags: ["LangChain", "Llama3", "RAG", "Vector Search", "Streamlit", "Python"],
+    tags: ["LangChain", "Llama3", "RAG", "Vector Search", "Streamlit", "AI Product"],
     link: "https://github.com/prithvi1811/github-repo-ai-chatbot",
     linkLabel: "View GitHub",
   },
+];
+
+const marketplaceStrategy = [
   {
-    title: "Sales Analytics Dashboard",
-    period: "Cipla · 2020–2021",
-    metric: "~40% sales lift in 6 months",
-    metricColor: "text-emerald-400",
-    summary:
-      "Built KPI-driven dashboards that turned regional sales data into actionable decisions.",
-    details: [
-      "Problem: Sales leadership lacked a clear view into which territories were underperforming and where conversion or adoption was breaking down.",
-      "What I built: A dashboard suite tracking regional performance, product mix, territory-level trends, and sales KPIs to give leadership a real-time view into where interventions were needed.",
-      "How: Combined SQL, Python, and reporting logic to structure data for ongoing business reviews and sales planning.",
-      "Impact: Helped identify territory inefficiencies and prioritize action areas, contributing to an approximately 40% increase in targeted medicine sales over 6 months.",
-    ],
-    tags: ["SQL", "Python", "Dashboards", "KPI Design", "Go-to-Market"],
+    title: "Network Effects & Liquidity",
+    description:
+      "I focus on balancing supply and demand-side dynamics. Success means having enough quality sellers to attract buyers, and enough active buyers to motivate sellers—it's a virtuous cycle that breaks if either side stalls.",
   },
   {
-    title: "Automated ETL & Reporting Pipeline",
-    period: "Cipla · 2020–2021",
-    metric: "24 hrs → under 2 hrs",
-    metricColor: "text-violet-400",
-    summary:
-      "Rebuilt reporting infrastructure to move from manual reporting to automated data delivery.",
-    details: [
-      "Problem: Reporting workflows depended heavily on manual processing, causing delays, inconsistency, and slower business response times.",
-      "What I built: An automated ETL pipeline to ingest, clean, transform, and publish business data into structured reporting tables for downstream dashboarding and analysis.",
-      "How: Used Python and SQL to automate repeatable data preparation logic and remove manual spreadsheet-based steps.",
-      "Impact: Reduced reporting latency from 24 hours to under 2 hours and cut manual effort by about 70%, making operational data far more usable for decision-making.",
-    ],
-    tags: ["SQL", "Python", "ETL", "Data Pipelines", "Automation"],
+    title: "Unit Economics Matter",
+    description:
+      "I obsess over unit-level profitability—cost per transaction, buyer acquisition cost, seller churn. Marketplace math is unforgiving; negative unit economics don't scale, no matter the volume.",
+  },
+  {
+    title: "Regional & Segment Strategy",
+    description:
+      "Different markets have different dynamics. I prioritize understanding regional constraints (compliance, buyer behavior, competition) and tailor product, pricing, and GTM accordingly.",
+  },
+  {
+    title: "Seller & Buyer Alignment",
+    description:
+      "Pricing, fees, and workflows need to feel fair to both sides. If sellers feel squeezed or buyers feel overcharged, the marketplace loses trust. I design for transparent, aligned incentives.",
+  },
+];
+
+const productMethodology = [
+  {
+    title: "Discovery First",
+    description:
+      "User interviews, data analysis, and market research before anything else. I need to understand the real problem before I can design a solution. Assumptions are expensive; evidence is cheap.",
+  },
+  {
+    title: "Hypothesis-Driven Experimentation",
+    description:
+      "Every product decision is a hypothesis. I define success metrics upfront, run controlled experiments (A/B tests, cohort analysis), and let data validate or falsify my assumptions.",
+  },
+  {
+    title: "Cross-Functional Collaboration",
+    description:
+      "Product lives at the intersection of user needs, technical constraints, and business goals. I partner closely with design, engineering, data, and ops teams—not to align them, but to solve together.",
+  },
+  {
+    title: "Measure, Learn, Iterate",
+    description:
+      "Shipping is not the end; it's the beginning. I instrument everything, measure impact against defined KPIs, and use learnings to inform the next cycle. Product is never done.",
+  },
+];
+
+const learnings = [
+  {
+    title: "When Fast Shipping Beats Perfect Planning",
+    description:
+      "Early in my Copart experience, I spent 6 weeks perfecting a complex feature spec before building. Learned lesson: ship a simple version in 2 weeks, gather real user feedback, iterate faster. Shipped > Perfect.",
+    context: "Copart marketplace feature launch",
+  },
+  {
+    title: "Seller Incentives Trump Interface Design",
+    description:
+      "We redesigned seller dashboards beautifully but adoption stayed low. Root cause: sellers had no incentive to use them—they weren't generating more sales. I learned: align incentives first, design second. Now I ask 'why would users care?' before building.",
+    context: "Copart seller-side optimization",
+  },
+  {
+    title: "Compliance and Product Velocity Are Tension Points",
+    description:
+      "International expansion taught me that regulatory constraints force trade-offs. A feature that works in the US might be illegal elsewhere. I learned to involve legal earlier, design for flexibility, and be realistic about velocity in regulated markets.",
+    context: "International marketplace expansion",
   },
 ];
 
@@ -268,6 +354,71 @@ export default function Resume() {
                     </Link>
                   </div>
                 ) : null}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <SectionTitle
+            eyebrow="Marketplace Thinking"
+            title="How I Approach Marketplace Product"
+          />
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            {marketplaceStrategy.map((card) => (
+              <div
+                key={card.title}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+              >
+                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                  {card.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <SectionTitle
+            eyebrow="Process & Methodology"
+            title="How I Ship Product"
+          />
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            {productMethodology.map((card) => (
+              <div
+                key={card.title}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+              >
+                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                  {card.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <SectionTitle
+            eyebrow="Learning & Growth"
+            title="Failures That Shaped My Thinking"
+            description="The mistakes that taught me the most about product strategy and execution."
+          />
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {learnings.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+              >
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                  {item.description}
+                </p>
+                <p className="mt-4 text-xs text-zinc-500">{item.context}</p>
               </div>
             ))}
           </div>
