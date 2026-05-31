@@ -1,148 +1,63 @@
 'use client';
 
-import { useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Overlay from './Overlay';
-
-const FRAME_COUNT = 40;
 
 export default function ScrollyCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
 
-  const imagesRef = useRef<(HTMLImageElement | null)[]>(new Array(FRAME_COUNT).fill(null));
-  const [loadedPercentage, setLoadedPercentage] = useState(0);
-
-  const drawImage = useCallback((canvas: HTMLCanvasElement, img: HTMLImageElement) => {
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    
-    // Ensure canvas dimensions match the window perfectly right before drawing to fix mobile resize glitches
-    if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    const ctxWidth = canvas.width;
-    const ctxHeight = canvas.height;
-    
-    if (ctxWidth === 0 || ctxHeight === 0) return;
-
-    const imgRatio = img.width / img.height;
-    const canvasRatio = ctxWidth / ctxHeight;
-
-    let drawWidth, drawHeight, offsetX, offsetY;
-
-    if (canvasRatio > imgRatio) {
-      drawWidth = ctxWidth;
-      drawHeight = ctxWidth / imgRatio;
-      offsetX = 0;
-      offsetY = (ctxHeight - drawHeight) / 2;
-    } else {
-      drawHeight = ctxHeight;
-      drawWidth = ctxHeight * imgRatio;
-      offsetY = 0;
-      offsetX = (ctxWidth - drawWidth) / 2;
-    }
-
-    ctx.clearRect(0, 0, ctxWidth, ctxHeight);
-    ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-  }, []);
-
-  const frameIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1]);
-
-  // Centralized robust draw logic requesting any loaded frame immediately
-  const requestDraw = useCallback(() => {
-    if (!canvasRef.current) return;
-    const currentFrame = Math.round(frameIndex.get());
-    let imgToDraw = imagesRef.current[currentFrame];
-    
-    // Look backward for a loaded frame if we scrolled faster than the network
-    if (!imgToDraw) {
-      for (let i = currentFrame - 1; i >= 0; i--) {
-        if (imagesRef.current[i]) {
-          imgToDraw = imagesRef.current[i];
-          break;
-        }
-      }
-    }
-    
-    // Look forward if backward fails
-    if (!imgToDraw) {
-      for (let i = currentFrame + 1; i < FRAME_COUNT; i++) {
-        if (imagesRef.current[i]) {
-          imgToDraw = imagesRef.current[i];
-          break;
-        }
-      }
-    }
-
-    if (imgToDraw) {
-      const finalImg = imgToDraw; // Scope for animation frame
-      requestAnimationFrame(() => {
-        if (canvasRef.current) drawImage(canvasRef.current, finalImg);
-      });
-    }
-  }, [drawImage, frameIndex]);
-
-  // Update canvas when user scrolls
-  useMotionValueEvent(frameIndex, 'change', requestDraw);
-
-  // Progressive image loading: trigger a redraw on *every* new image load for bad networks
-  useEffect(() => {
-    let loadedCount = 0;
-    for (let i = 1; i <= FRAME_COUNT; i++) {
-      const img = new Image();
-      const frameNum = i.toString().padStart(3, '0');
-      img.src = `/sequence/ezgif-frame-${frameNum}.png`;
-      
-      const index = i - 1;
-      img.onload = () => {
-        imagesRef.current[index] = img;
-        loadedCount++;
-        setLoadedPercentage(Math.round((loadedCount / FRAME_COUNT) * 100));
-        requestDraw();
-      };
-    }
-  }, [requestDraw]);
-
-  // Handle window resizing safely on mobile limits
-  useEffect(() => {
-    const handleResize = () => requestDraw();
-    window.addEventListener('resize', handleResize);
-    // Force an initial layout pass
-    handleResize(); 
-    return () => window.removeEventListener('resize', handleResize);
-  }, [requestDraw]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.92, 0.8]);
 
   return (
-    <div ref={containerRef} className="relative h-[500dvh] w-full bg-[#121212]">
-      <div className="sticky top-0 h-[100dvh] w-full overflow-hidden bg-[#121212]">
-        
-        {loadedPercentage < 25 && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-zinc-500 font-mono text-xs z-0">
-            <div className="w-32 h-1 bg-zinc-800 rounded-full mb-3 overflow-hidden">
-              <div 
-                className="h-full bg-white transition-all duration-300"
-                style={{ width: `${loadedPercentage * 4}%` }} 
-              />
-            </div>
-            Loading cinematic assets...
-          </div>
-        )}
+    <section ref={containerRef} className="relative h-[300vh] bg-black">
+      <div className="sticky top-0 h-screen overflow-hidden">
+        <motion.div
+          style={{ scale, opacity }}
+          className="absolute inset-0"
+        >
+          {/* Base AI-style gradient background */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(168,85,247,0.14),_transparent_30%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.10),_transparent_35%),linear-gradient(to_bottom,_#050505,_#0b0b0f,_#121212)]" />
 
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 h-full w-full z-0 pointer-events-none"
-        />
-        
+          {/* Grid overlay */}
+          <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:48px_48px]" />
+
+          {/* Floating background images */}
+          <img
+            src="/bg/ai1.jpg"
+            alt="AI abstract background"
+            className="absolute top-10 left-8 w-64 md:w-80 rounded-2xl opacity-[0.10] blur-sm object-cover"
+          />
+
+          <img
+            src="/bg/ai2.jpg"
+            alt="Data visualization background"
+            className="absolute bottom-16 right-8 w-72 md:w-96 rounded-2xl opacity-[0.10] blur-sm object-cover"
+          />
+
+          <img
+            src="/bg/ai3.jpg"
+            alt="Neural network background"
+            className="absolute top-1/3 left-1/2 -translate-x-1/2 w-72 md:w-[28rem] rounded-2xl opacity-[0.08] blur-md object-cover"
+          />
+
+          {/* Glow orbs */}
+          <div className="absolute left-[12%] top-[18%] h-44 w-44 rounded-full bg-blue-500/10 blur-3xl" />
+          <div className="absolute right-[12%] top-[25%] h-52 w-52 rounded-full bg-violet-500/10 blur-3xl" />
+          <div className="absolute left-1/2 bottom-[12%] h-56 w-56 -translate-x-1/2 rounded-full bg-emerald-400/10 blur-3xl" />
+
+          {/* Dark vignette */}
+          <div className="absolute inset-0 bg-black/25" />
+        </motion.div>
+
         <Overlay scrollYProgress={scrollYProgress} />
       </div>
-    </div>
+    </section>
   );
 }

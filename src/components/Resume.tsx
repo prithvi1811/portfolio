@@ -1,267 +1,358 @@
-'use client';
+import Link from "next/link";
 
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Briefcase, GraduationCap, Code2, Rocket, User, Target, Linkedin } from 'lucide-react';
-
-const experiences = [
+const experience = [
   {
-    company: 'Copart',
-    role: 'Product Manager',
-    date: 'Mar 2023 - Present',
-    location: 'Dallas, TX',
-    points: [
-      'Addressed declining buyer engagement in auction flows, increasing conversion by 15% and generating $2M+ incremental revenue.',
-      'Completed product lifecycle for 25+ marketplace features, prioritizing roadmap initiatives in an Agile environment.',
-      'Scaled product capabilities across five international markets (UK, Oman, Bahrain, Spain, Finland).',
-      'Accelerated enterprise insurer integrations from discovery to production launch via PRDs and Guidewire ClaimCenter Cloud workflows.'
-    ]
+    company: "Copart",
+    role: "Product Manager",
+    location: "Dallas, TX",
+    period: "Mar 2023–Present",
+    bullets: [
+      "Identified drop-offs across key auction flow steps through funnel analysis and buyer behavior reviews, then led A/B-tested UX improvements that increased buyer conversion by 15% and generated $2M+ in incremental revenue.",
+      "Led rollout of platform enhancements across UK, Oman, Bahrain, Spain, and Finland by adapting pricing logic, seller workflows, and compliance-sensitive requirements for each market, helping these launches contribute roughly 10% of total GMV.",
+      "Built a self-serve analytics layer and KPI framework for cross-functional teams, reducing ad-hoc reporting requests by 40% and speeding up decision-making for product, operations, and leadership stakeholders.",
+      "Owned end-to-end delivery for Guidewire ClaimCenter integration work, from requirements and PRD definition through launch coordination, reducing insurer onboarding friction and improving enterprise workflow efficiency.",
+      "Partnered with senior leadership to analyze product metrics, customer behavior, and business performance trends to shape roadmap priorities and support multi-quarter platform investment decisions.",
+    ],
   },
   {
-    company: 'Cipla Ltd.',
-    role: 'Business Analyst (Product & Analytics)',
-    date: 'Nov 2019 - Nov 2021',
-    location: 'Mumbai, IN',
-    points: [
-      'Increased targeted medicine sales by 40% within six months through KPI-driven dashboards.',
-      'Enabled strategic decision-making across 100+ regional offices with real-time visibility into sales performance.',
-      'Reduced operational sanitization costs by $1.2M by identifying inefficiencies through data analysis.',
-      'Reduced reporting latency from 24 hours to near real-time by modernizing enterprise reporting systems.'
-    ]
-  }
+    company: "Cipla Ltd.",
+    role: "Business Analyst (Product & Analytics)",
+    location: "Mumbai, India",
+    period: "Nov 2019–Nov 2021",
+    bullets: [
+      "Diagnosed underperformance across territories by analyzing sales trends, rep productivity, and regional demand signals, then built KPI-driven dashboards that helped drive a ~40% increase in targeted medicine sales within 6 months.",
+      "Worked with stakeholders across 100+ regional offices to define business-critical KPIs, improve visibility into field performance, and support go-to-market and territory prioritization decisions.",
+      "Modernized reporting workflows by building automated SQL and Python pipelines that reduced data latency from 24 hours to near real-time and removed significant manual reporting effort.",
+    ],
+  },
 ];
 
-const projects = [
+const selectedWork = [
   {
-    title: 'Sales Analytics Dashboard',
-    link: 'https://github.com/prithvi1811/sales-analytics-dashboard',
-    description: 'End-to-end BI pipeline with ETL, data modeling, and Tableau dashboard.'
+    title: "GitHub Repository AI Chatbot",
+    period: "Personal Project · 2024",
+    metric: "RAG · LLMs · Vector Search",
+    metricColor: "text-blue-400",
+    summary:
+      "Built a working RAG chatbot that answers questions from GitHub repositories.",
+    details: [
+      "Problem: Developers often spend too much time manually exploring unfamiliar codebases before they can answer even basic architecture or logic questions.",
+      "What I built: A Retrieval-Augmented Generation workflow that ingests repository content, chunks code and documentation, creates vector embeddings, retrieves relevant context, and generates grounded answers through an LLM-powered chat interface.",
+      "How: Used LangChain orchestration, Llama3 via Ollama for inference, vector search for retrieval, and Streamlit for the interface.",
+      "Impact: Reduced manual code exploration time by roughly 60% for common repo understanding tasks and created a strong hands-on prototype of an AI-native product workflow.",
+    ],
+    tags: ["LangChain", "Llama3", "RAG", "Vector Search", "Streamlit", "Python"],
+    link: "https://github.com/prithvi1811/github-repo-ai-chatbot",
+    linkLabel: "View GitHub",
   },
   {
-    title: 'GitHub Repository AI Chatbot',
-    link: 'https://github.com/prithvi1811/github-repo-ai-chatbot',
-    description: 'Built an AI chatbot that indexes GitHub repositories and answers questions using RAG and a local LLM (Llama3 via Ollama) with a Streamlit UI.'
+    title: "Sales Analytics Dashboard",
+    period: "Cipla · 2020–2021",
+    metric: "~40% sales lift in 6 months",
+    metricColor: "text-emerald-400",
+    summary:
+      "Built KPI-driven dashboards that turned regional sales data into actionable decisions.",
+    details: [
+      "Problem: Sales leadership lacked a clear view into which territories were underperforming and where conversion or adoption was breaking down.",
+      "What I built: A dashboard suite tracking regional performance, product mix, territory-level trends, and sales KPIs to give leadership a real-time view into where interventions were needed.",
+      "How: Combined SQL, Python, and reporting logic to structure data for ongoing business reviews and sales planning.",
+      "Impact: Helped identify territory inefficiencies and prioritize action areas, contributing to an approximately 40% increase in targeted medicine sales over 6 months.",
+    ],
+    tags: ["SQL", "Python", "Dashboards", "KPI Design", "Go-to-Market"],
   },
   {
-    title: 'Used Car Price Prediction',
-    link: 'https://github.com/prithvi1811/Used-Car-Price-Prediction-',
-    description: 'Machine learning model for automated pricing decisions.'
+    title: "Automated ETL & Reporting Pipeline",
+    period: "Cipla · 2020–2021",
+    metric: "24 hrs → under 2 hrs",
+    metricColor: "text-violet-400",
+    summary:
+      "Rebuilt reporting infrastructure to move from manual reporting to automated data delivery.",
+    details: [
+      "Problem: Reporting workflows depended heavily on manual processing, causing delays, inconsistency, and slower business response times.",
+      "What I built: An automated ETL pipeline to ingest, clean, transform, and publish business data into structured reporting tables for downstream dashboarding and analysis.",
+      "How: Used Python and SQL to automate repeatable data preparation logic and remove manual spreadsheet-based steps.",
+      "Impact: Reduced reporting latency from 24 hours to under 2 hours and cut manual effort by about 70%, making operational data far more usable for decision-making.",
+    ],
+    tags: ["SQL", "Python", "ETL", "Data Pipelines", "Automation"],
   },
-  {
-    title: 'Automated Bulk Email',
-    link: 'https://github.com/prithvi1811/Automation-on-Sending-Bulk-Email-',
-    description: 'Growth and Ops automation script for scaled outreach.'
-  },
-  {
-    title: 'Telecom Churn Prediction',
-    link: 'https://github.com/prithvi1811/Telecom-churn-prediction',
-    description: 'Predictive analytics model to identify customer churn risks.'
-  }
 ];
 
-const skills = {
-  pm: ['Product Strategy', 'Roadmapping', 'A/B Testing', 'Marketplace Optimization', 'Enterprise Integrations'],
-  tech: ['SQL', 'Python', 'Snowflake', 'AWS', 'Guidewire'],
-  ai: ['LLMs', 'RAG', 'Vector Databases', 'LangChain', 'Embeddings', 'AI Product Prototyping']
-};
+const aiCards = [
+  {
+    title: "Problem First",
+    description:
+      "I start with the user bottleneck, not the model. The strongest AI products solve a real workflow problem instead of adding AI for novelty.",
+  },
+  {
+    title: "Workflow Fit",
+    description:
+      "I look for places where AI can reduce friction, speed up decisions, or remove repetitive work without forcing people into a totally new process.",
+  },
+  {
+    title: "Trust & Quality",
+    description:
+      "AI output only matters if users can rely on it. I care about grounding, retrieval quality, failure handling, and making outputs usable in real-world decisions.",
+  },
+  {
+    title: "Measure Impact",
+    description:
+      "I treat AI like any product investment: define the success metric, instrument the experience, and validate whether the system actually improves business outcomes.",
+  },
+];
+
+const skillColumns = [
+  {
+    title: "Product",
+    skills: [
+      "Product Strategy",
+      "Roadmapping",
+      "A/B Testing & Experimentation",
+      "Marketplace Optimization",
+      "Enterprise Integrations",
+      "KPI & Metrics Design",
+    ],
+  },
+  {
+    title: "AI & Machine Learning",
+    skills: [
+      "LLMs",
+      "Retrieval Augmented Generation (RAG)",
+      "Vector Databases",
+      "LangChain",
+      "Embeddings",
+      "AI Product Prototyping",
+    ],
+  },
+  {
+    title: "Technical",
+    skills: [
+      "SQL",
+      "Python",
+      "Snowflake",
+      "AWS",
+      "Guidewire",
+      "ETL Pipelines",
+    ],
+  },
+];
+
+const education = [
+  {
+    school: "University of Texas at Dallas",
+    degree: "MS Business Analytics",
+    period: "Jan 2022–Dec 2023",
+  },
+  {
+    school: "Manipal University Jaipur",
+    degree: "BTech Civil Engineering",
+    period: "Apr 2015–Jul 2019",
+  },
+];
+
+function SectionTitle({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description?: string;
+}) {
+  return (
+    <div className="mb-8">
+      <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">{eyebrow}</p>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        {title}
+      </h2>
+      {description ? (
+        <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-400">
+          {description}
+        </p>
+      ) : null}
+    </div>
+  );
+}
 
 export default function Resume() {
   return (
-    <section className="relative w-full bg-[#121212] py-32 px-4 md:px-8 text-white z-20">
-      <div className="max-w-6xl mx-auto space-y-32">
-        
-        {/* Summary & Roles Section */}
-        <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, margin: '-100px' }}
-           transition={{ duration: 0.6 }}
-           className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {/* Summary */}
-          <div className="group relative p-8 rounded-3xl border border-zinc-800/50 bg-zinc-900/20 backdrop-blur-md overflow-hidden hover:bg-zinc-800/40 transition-colors duration-500 flex flex-col justify-between">
-            <div className="absolute -top-40 -left-40 w-80 h-80 bg-white/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            <div className="relative z-10 mb-8">
-              <div className="flex items-center gap-3 mb-6">
-                <User className="text-zinc-500" size={24} />
-                <h3 className="text-sm font-medium tracking-widest uppercase text-zinc-500">Summary</h3>
-              </div>
-              <p className="text-zinc-300 text-sm leading-relaxed">
-                Product Manager driving marketplace and platform initiatives across multi-million-dollar transaction systems. Delivered $2M+ revenue impact, 15% conversion lift, and 35% operational efficiency gains through experimentation, enterprise integrations, and data-driven product strategy. Experienced in building AI-powered product prototypes using LLMs, vector search, and retrieval-based architectures.
-              </p>
-            </div>
-            <a href="https://www.linkedin.com/in/prithvishaktichauhan/" target="_blank" rel="noreferrer" className="relative z-10 inline-flex items-center justify-center gap-2 text-sm font-semibold text-white bg-[#0A66C2] px-6 py-3 rounded-xl hover:bg-[#004182] transition-colors w-fit">
-              <Linkedin size={18} />
-              Connect on LinkedIn
-            </a>
-          </div>
-
-          {/* Roles of Interest */}
-          <div className="group relative p-8 rounded-3xl border border-zinc-800/50 bg-zinc-900/20 backdrop-blur-md overflow-hidden hover:bg-zinc-800/40 transition-colors duration-500">
-             <div className="flex items-center gap-3 mb-8">
-              <Target className="text-zinc-500" size={24} />
-              <h3 className="text-sm font-medium tracking-widest uppercase text-zinc-500">Target Roles</h3>
-            </div>
-            <div className="flex flex-wrap gap-3 relative z-10">
-              {['Senior Product Manager', 'Product Manager', 'Technical Product Manager', 'AI Product Manager', 'Data Product Manager', 'Business Analyst (Product)'].map((role, i) => (
-                <span key={i} className="px-4 py-2.5 bg-zinc-900 border border-zinc-700/50 hover:border-zinc-500 transition-colors rounded-xl text-sm text-zinc-200 font-medium tracking-wide shadow-sm cursor-default">
-                  {role}
-                </span>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Experience Section */}
+    <section className="bg-[#121212] px-6 py-24 text-zinc-200 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-6xl space-y-20">
         <div>
-          <div className="flex items-center gap-3 mb-12">
-            <Briefcase className="text-zinc-500" size={24} />
-            <h3 className="text-sm font-medium tracking-widest uppercase text-zinc-500">
-              Professional Experience
-            </h3>
-          </div>
-          
-          <div className="space-y-8">
-            {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group relative p-8 rounded-3xl border border-zinc-800/50 bg-zinc-900/20 backdrop-blur-md overflow-hidden hover:bg-zinc-800/40 transition-colors duration-500"
+          <SectionTitle
+            eyebrow="Career"
+            title="Experience"
+            description="Marketplace, analytics, and enterprise platform work across product, operations, and decision systems."
+          />
+
+          <div className="space-y-6">
+            {experience.map((item) => (
+              <div
+                key={`${item.company}-${item.role}`}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
               >
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4 relative z-10">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <h4 className="text-2xl font-semibold tracking-tight text-white mb-1">
-                      {exp.role}
-                    </h4>
-                    <p className="text-zinc-400 font-medium">{exp.company} <span className="mx-2 text-zinc-700">•</span> {exp.location}</p>
+                    <h3 className="text-xl font-semibold text-white">
+                      {item.role} · {item.company}
+                    </h3>
+                    <p className="mt-1 text-sm text-zinc-400">{item.location}</p>
                   </div>
-                  <span className="text-xs font-mono text-zinc-400 border border-zinc-800 rounded-full px-4 py-2 bg-zinc-900/50 whitespace-nowrap">
-                    {exp.date}
-                  </span>
+                  <p className="text-sm text-zinc-500">{item.period}</p>
                 </div>
-                
-                <ul className="space-y-3 relative z-10">
-                  {exp.points.map((point, j) => (
-                    <li key={j} className="text-zinc-400 text-sm leading-relaxed flex items-start">
-                      <span className="text-zinc-600 mr-3 mt-1.5 text-xs">◆</span>
-                      {point}
+
+                <ul className="mt-5 space-y-3 text-sm leading-7 text-zinc-300">
+                  {item.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-3">
+                      <span className="mt-[10px] h-1.5 w-1.5 rounded-full bg-zinc-500" />
+                      <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Projects Section */}
         <div>
-          <div className="flex items-center gap-3 mb-12">
-            <Rocket className="text-zinc-500" size={24} />
-            <h3 className="text-sm font-medium tracking-widest uppercase text-zinc-500">
-              Selected Projects
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6 }}
-                className="group relative p-8 rounded-3xl border border-zinc-800/50 bg-zinc-900/20 backdrop-blur-md overflow-hidden hover:bg-zinc-800/40 transition-colors duration-500"
+          <SectionTitle
+            eyebrow="Portfolio"
+            title="Selected Work"
+            description="Projects that show how I think through product problems, build prototypes, and create measurable business value."
+          />
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {selectedWork.map((project) => (
+              <div
+                key={project.title}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 shadow-sm transition hover:border-zinc-700"
               >
-                <div className="flex justify-between items-start mb-6">
-                  <Code2 className="text-zinc-500" size={24} />
-                  <a href={project.link} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-zinc-700 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
-                    <ArrowUpRight strokeWidth={1.5} size={18} />
-                  </a>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                  <p className="mt-1 text-sm text-zinc-400">{project.period}</p>
                 </div>
-                <h4 className="text-xl font-semibold mb-3 tracking-tight text-white">
-                  {project.title}
-                </h4>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  {project.description}
+
+                <p className={`mt-4 text-sm font-medium ${project.metricColor}`}>
+                  {project.metric}
                 </p>
-              </motion.div>
+
+                <p className="mt-4 text-sm leading-7 text-zinc-200">
+                  {project.summary}
+                </p>
+
+                <div className="mt-4 space-y-3 text-sm leading-7 text-zinc-400">
+                  {project.details.map((detail) => (
+                    <p key={detail}>{detail}</p>
+                  ))}
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-xs text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {project.link ? (
+                  <div className="mt-6">
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-medium text-blue-400 transition hover:text-blue-300"
+                    >
+                      {project.linkLabel} →
+                    </Link>
+                  </div>
+                ) : null}
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Skills & Education Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="text-sm font-medium tracking-widest uppercase text-zinc-500 mb-8">Technical Arsenal</h3>
-            <div className="space-y-6">
-              <div>
-                <h5 className="text-white text-sm font-semibold mb-3">Product & Strategy</h5>
-                <div className="flex flex-wrap gap-2">
-                  {skills.pm.map((skill, i) => (
-                    <span key={i} className="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-zinc-300">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h5 className="text-white text-sm font-semibold mb-3">Core Tech</h5>
-                <div className="flex flex-wrap gap-2">
-                  {skills.tech.map((skill, i) => (
-                    <span key={i} className="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-zinc-300">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h5 className="text-white text-sm font-semibold mb-3">AI & ML</h5>
-                <div className="flex flex-wrap gap-2">
-                  {skills.ai.map((skill, i) => (
-                    <span key={i} className="px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-lg text-xs text-zinc-300">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        <div>
+          <SectionTitle
+            eyebrow="AI Product Thinking"
+            title="How I Think About AI Products"
+          />
 
-          {/* Education */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <GraduationCap className="text-zinc-500" size={24} />
-              <h3 className="text-sm font-medium tracking-widest uppercase text-zinc-500">Education</h3>
-            </div>
-            <div className="space-y-6">
-              <div className="p-6 rounded-2xl border border-zinc-800/50 bg-zinc-900/10 backdrop-blur-sm">
-                <h4 className="text-lg font-semibold text-white mb-1">M.S. Business Analytics</h4>
-                <p className="text-sm text-zinc-400 mb-3">University of Texas at Dallas</p>
-                <p className="text-xs font-mono text-zinc-500">Jan 2022 - Dec 2023</p>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {aiCards.map((card) => (
+              <div
+                key={card.title}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+              >
+                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                  {card.description}
+                </p>
               </div>
-              <div className="p-6 rounded-2xl border border-zinc-800/50 bg-zinc-900/10 backdrop-blur-sm">
-                <h4 className="text-lg font-semibold text-white mb-1">B.Tech Civil Engineering</h4>
-                <p className="text-sm text-zinc-400 mb-3">Manipal University Jaipur, India</p>
-                <p className="text-xs font-mono text-zinc-500">Apr 2015 - Jul 2019</p>
-              </div>
-            </div>
-          </motion.div>
+            ))}
+          </div>
         </div>
 
+        <div>
+          <SectionTitle eyebrow="Capabilities" title="Skills" />
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {skillColumns.map((column) => (
+              <div
+                key={column.title}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+              >
+                <h3 className="text-lg font-semibold text-white">{column.title}</h3>
+                <ul className="mt-4 space-y-3 text-sm text-zinc-300">
+                  {column.skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <SectionTitle eyebrow="Academics" title="Education" />
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {education.map((item) => (
+              <div
+                key={item.school}
+                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+              >
+                <h3 className="text-lg font-semibold text-white">{item.school}</h3>
+                <p className="mt-2 text-sm text-zinc-300">{item.degree}</p>
+                <p className="mt-1 text-sm text-zinc-500">{item.period}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <footer className="flex flex-col items-start justify-between gap-4 border-t border-zinc-800 pt-8 text-sm text-zinc-400 sm:flex-row sm:items-center">
+          <p>Prithvi Chauhan</p>
+
+          <div className="flex items-center gap-6">
+            <Link
+              href="https://github.com/prithvi1811"
+              target="_blank"
+              rel="noreferrer"
+              className="transition hover:text-white"
+            >
+              GitHub
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/prithvishaktichauhan/"
+              target="_blank"
+              rel="noreferrer"
+              className="transition hover:text-white"
+            >
+              LinkedIn
+            </Link>
+          </div>
+        </footer>
       </div>
     </section>
   );
