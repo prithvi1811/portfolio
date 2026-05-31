@@ -374,9 +374,10 @@ export default function Resume() {
           />
 
           <div className="space-y-6">
-            {caseStudies.map((study) => (
+            {caseStudies.map((study, idx) => (
               <CaseStudyCard
                 key={study.title}
+                index={idx}
                 title={study.title}
                 period={study.period}
                 metric={study.metric}
@@ -402,6 +403,7 @@ export default function Resume() {
             {failures.map((failure, idx) => (
               <FailureCard
                 key={idx}
+                index={idx}
                 title={failure.title}
                 situation={failure.situation}
                 lesson={failure.lesson}
@@ -446,9 +448,10 @@ export default function Resume() {
           />
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {productFramework.map((framework) => (
+            {productFramework.map((framework, idx) => (
               <FrameworkCard
                 key={framework.title}
+                index={idx}
                 title={framework.title}
                 description={framework.description}
                 example={framework.example}
