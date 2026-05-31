@@ -75,7 +75,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
               <Link
-                href="/resume/Prithvi_Chauhan_Resume.pdf"
+                href="/resume/Prithvi Chauhan.pdf"
                 target="_blank"
                 className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-white px-6 py-3 sm:py-3.5 text-sm font-medium text-black transition hover:opacity-90 active:opacity-75 min-h-[44px]"
               >
