@@ -23,22 +23,22 @@ function LabelTag({ text }: { text: string }) {
 }
 
 export default function Overlay({ scrollYProgress }: OverlayProps) {
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.22, 0.32], [1, 1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.32], [0, -80]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.18, 0.28], [1, 1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 0.28], [0, -80]);
 
   const secondOpacity = useTransform(
     scrollYProgress,
-    [0.24, 0.36, 0.56, 0.68],
+    [0.22, 0.32, 0.52, 0.62],
     [0, 1, 1, 0]
   );
-  const secondY = useTransform(scrollYProgress, [0.24, 0.68], [80, -80]);
+  const secondY = useTransform(scrollYProgress, [0.22, 0.62], [80, -80]);
 
   const thirdOpacity = useTransform(
     scrollYProgress,
-    [0.58, 0.68, 0.78, 0.86],
+    [0.56, 0.66, 0.85, 0.95],
     [0, 1, 1, 0]
   );
-  const thirdY = useTransform(scrollYProgress, [0.58, 0.86], [80, -40]);
+  const thirdY = useTransform(scrollYProgress, [0.56, 0.95], [80, -40]);
 
   return (
     <div className="pointer-events-none fixed inset-0 z-20">
