@@ -16,11 +16,12 @@ export default function ScrollyCanvas() {
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.92, 0.8]);
 
   return (
-    <section ref={containerRef} className="relative h-[200vh] sm:h-[250vh] lg:h-[300vh] bg-black">
-      <div className="sticky top-0 h-screen overflow-hidden">
+    <>
+      <section ref={containerRef} className="relative h-[200vh] sm:h-[250vh] lg:h-[300vh] bg-black">
+        {/* Background content */}
         <motion.div
           style={{ scale, opacity }}
-          className="absolute inset-0"
+          className="fixed inset-0 pointer-events-none"
         >
           {/* Base AI-style gradient background */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.15),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(168,85,247,0.12),_transparent_35%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.08),_transparent_40%),linear-gradient(to_bottom,_#050505,_#0b0b0f,_#121212)]" />
@@ -56,8 +57,11 @@ export default function ScrollyCanvas() {
           <div className="absolute inset-0 bg-black/25" />
         </motion.div>
 
-        <Overlay scrollYProgress={scrollYProgress} />
-      </div>
-    </section>
+        {/* Overlay content - sticks at top while scrolling */}
+        <div className="fixed top-0 left-0 right-0 h-screen w-full pointer-events-none z-20">
+          <Overlay scrollYProgress={scrollYProgress} />
+        </div>
+      </section>
+    </>
   );
 }
