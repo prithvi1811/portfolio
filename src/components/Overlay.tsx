@@ -8,10 +8,10 @@ interface OverlayProps {
 }
 
 const metrics = [
-  { value: "$2M+", label: "Revenue Impact" },
-  { value: "15%", label: "Conversion Lift" },
-  { value: "5", label: "Global Markets" },
-  { value: "40%", label: "Reporting Reduction" },
+  { value: "20", label: "Carrier Integrations" },
+  { value: "100K+", label: "Lots Onboarded" },
+  { value: "1M+", label: "Inventory Units Added" },
+  { value: "30%", label: "Account Revenue Lift" },
 ];
 
 function LabelTag({ text }: { text: string }) {
@@ -48,15 +48,16 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
           className="absolute inset-0 flex items-center justify-center px-6"
         >
           <div className="pointer-events-auto mx-auto max-w-6xl text-center">
-            <LabelTag text="Marketplace · Platform · AI Products" />
+            <LabelTag text="B2B Marketplace · Seller Integrations · AI Products" />
 
             <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-7xl">
               Prithvi Chauhan
             </h1>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
-              I ship marketplace products that move revenue — and build AI
-              systems that make teams faster.
+              I ship B2B marketplace platforms — leading seller integrations,
+              AI-powered insights, and automation that scales global
+              operations.
             </p>
 
             <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
@@ -106,8 +107,9 @@ href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
             </h2>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
-              From A/B-tested UX improvements at Copart to launching across 5
-              international markets — I own the full product lifecycle end-to-end.
+              From leading 20 insurance carrier integrations to launching MAO
+              2.0 across the UK, UAE, Oman, and Bahrain — I own the full
+              product lifecycle end-to-end.
             </p>
           </div>
         </motion.section>
@@ -125,8 +127,10 @@ href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
             </h2>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
-              Not just a PM who understands AI — I&apos;ve built a working RAG
-              chatbot with Llama3, LangChain, and vector embeddings from scratch.
+              I&apos;ve shipped AI-powered historical lot insights in production
+              at Copart to improve seller decision-making, and built a working
+              RAG chatbot with Llama3, LangChain, and vector embeddings from
+              scratch.
             </p>
           </div>
         </motion.section>

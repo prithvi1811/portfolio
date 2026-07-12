@@ -7,22 +7,25 @@ const experience = [
     location: "Dallas, TX",
     period: "Mar 2023–Present",
     bullets: [
-      "Identified drop-offs across key auction flow steps through funnel analysis and buyer behavior reviews, then led A/B-tested UX improvements that increased buyer conversion by 15% and generated $2M+ in incremental revenue.",
-      "Led rollout of platform enhancements across UK, Oman, Bahrain, Spain, and Finland by adapting pricing logic, seller workflows, and compliance-sensitive requirements for each market, helping these launches contribute roughly 10% of total GMV.",
-      "Built a self-serve analytics layer and KPI framework for cross-functional teams, reducing ad-hoc reporting requests by 40% and speeding up decision-making for product, operations, and leadership stakeholders.",
-      "Owned end-to-end delivery for Guidewire ClaimCenter integration work, from requirements and PRD definition through launch coordination, reducing insurer onboarding friction and improving enterprise workflow efficiency.",
-      "Partnered with senior leadership to analyze product metrics, customer behavior, and business performance trends to shape roadmap priorities and support multi-quarter platform investment decisions.",
+      "Led end-to-end seller integration strategy for 20 insurance carriers in 6 months, expanding inventory by 100,000+ lots across the U.S. and Canada through data-driven product management and cross-functional execution.",
+      "Partnered with engineering, QA, and design to translate business needs into product requirements, prioritize backlogs, and ship marketplace workflows with minimal guidance across backend and API-dependent surfaces.",
+      "Delivered AI-powered historical lot insights using machine learning signals and quantitative analysis, improving seller decision-making and contributing to a 1 million-unit increase in platform inventory.",
+      "Built automated bid-limit logic across UAE, Oman, and Bahrain using country-specific rules and HTTP-based currency conversion, eliminating 5+ hours of manual operational work each day.",
+      "Launched MAO 2.0 for the UK market, creating a structured seller experience for reviewing, negotiating, and accepting pre-auction offers across the full product lifecycle.",
+      "Implemented Google Analytics and FullStory across buyer and seller portals, enabling UI-centric analysis, testing, experimentation, and roadmap prioritization based on behavioral data.",
+      "Delivered a custom buyer configuration in 2 weeks for the largest customer account, increasing revenue from that account by 30% and strengthening go-to-market execution.",
     ],
   },
   {
     company: "Cipla Ltd.",
-    role: "Business Analyst (Product & Analytics)",
+    role: "Business Analyst",
     location: "Mumbai, India",
     period: "Nov 2019–Nov 2021",
     bullets: [
-      "Diagnosed underperformance across territories by analyzing sales trends, rep productivity, and regional demand signals, then built KPI-driven dashboards that helped drive a ~40% increase in targeted medicine sales within 6 months.",
-      "Worked with stakeholders across 100+ regional offices to define business-critical KPIs, improve visibility into field performance, and support go-to-market and territory prioritization decisions.",
-      "Modernized reporting workflows by building automated SQL and Python pipelines that reduced data latency from 24 hours to near real-time and removed significant manual reporting effort.",
+      "Analyzed sales performance across India to identify underperforming regions and recommended targeted go-to-market actions that increased sales by 30%.",
+      "Collaborated with business intelligence engineers to define quantitative metrics, build dashboards, and provide leadership with real-time visibility into regional performance.",
+      "Developed the business case for bringing enterprise sanitization operations in-house, reducing operating costs by approximately USD 200,000 per quarter.",
+      "Partnered with leadership on regional sales planning, segmentation, and prioritization to improve execution across commercial channels and support revenue growth.",
     ],
   },
 ];
@@ -191,11 +194,24 @@ const skillColumns = [
     title: "Product",
     skills: [
       "Product Strategy",
-      "Roadmapping",
+      "Product Discovery",
+      "Roadmapping & Prioritization",
+      "MVP Definition",
+      "Product Lifecycle",
+      "Agile & Scrum",
+      "Stakeholder Management",
+    ],
+  },
+  {
+    title: "Analytics & Experimentation",
+    skills: [
+      "SQL",
+      "Python",
       "A/B Testing & Experimentation",
-      "Marketplace Optimization",
-      "Enterprise Integrations",
-      "KPI & Metrics Design",
+      "Amplitude",
+      "Attribution, LTV & CAC",
+      "Google Analytics & FullStory",
+      "Data-Driven Decision Making",
     ],
   },
   {
@@ -203,23 +219,34 @@ const skillColumns = [
     skills: [
       "LLMs",
       "Retrieval Augmented Generation (RAG)",
-      "Vector Databases",
       "LangChain",
-      "Embeddings",
+      "LlamaIndex",
+      "FAISS Vector Search",
+      "Llama3",
       "AI Product Prototyping",
     ],
   },
   {
-    title: "Technical",
+    title: "Tools & Platforms",
     skills: [
-      "SQL",
-      "Python",
-      "Snowflake",
-      "AWS",
+      "Jira",
+      "Confluence",
+      "Figma",
+      "Tableau",
+      "Power BI",
       "Guidewire",
-      "ETL Pipelines",
+      "Snowflake",
     ],
   },
+];
+
+const certifications = [
+  "Certified Scrum Product Owner (CSPO)",
+  "Certified ScrumMaster (CSM)",
+  "Python for Data Science, AI & Development",
+  "Data Analysis with R Programming",
+  "Tableau Essential Training",
+  "Introduction to R",
 ];
 
 const education = [
@@ -448,7 +475,7 @@ export default function Resume() {
         <div>
           <SectionTitle eyebrow="Capabilities" title="Skills" />
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {skillColumns.map((column) => (
               <div
                 key={column.title}
@@ -478,6 +505,21 @@ export default function Resume() {
                 <p className="mt-2 text-sm text-zinc-300">{item.degree}</p>
                 <p className="mt-1 text-sm text-zinc-500">{item.period}</p>
               </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <SectionTitle eyebrow="Credentials" title="Certifications" />
+
+          <div className="flex flex-wrap gap-3">
+            {certifications.map((cert) => (
+              <span
+                key={cert}
+                className="rounded-full border border-zinc-700 bg-zinc-900/70 px-4 py-2 text-sm text-zinc-300"
+              >
+                {cert}
+              </span>
             ))}
           </div>
         </div>

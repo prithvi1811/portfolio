@@ -15,10 +15,10 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Prithvi Chauhan — Product Manager",
-  description: "Marketplace-focused Product Manager with 4+ years driving platform growth, $2M+ revenue impact, and hands-on AI/LLM experience.",
+  description: "B2B Product Manager with 5+ years shipping marketplace platforms, seller integrations, and AI-powered product features — 20 carrier integrations, 100,000+ lots onboarded, and hands-on AI/LLM experience.",
   openGraph: {
     title: "Prithvi Chauhan — Product Manager",
-    description: "Marketplace PM with $2M+ revenue impact, 15% conversion lift, and hands-on AI/LLM prototyping.",
+    description: "B2B marketplace PM with 20 carrier integrations, 100,000+ lots onboarded, and hands-on AI/LLM prototyping.",
     url: "https://prithvichauhan.vercel.app",
     siteName: "Prithvi Chauhan",
     type: "website",
