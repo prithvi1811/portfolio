@@ -107,9 +107,9 @@ href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
             </h2>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
-              From leading 20 insurance carrier integrations to launching MAO
-              2.0 across the UK, UAE, Oman, and Bahrain — I own the full
-              product lifecycle end-to-end.
+              From launching MAO 2.0 in the UK to automating bid-limit logic
+              across UAE, Oman, and Bahrain — I own the full product
+              lifecycle end-to-end.
             </p>
           </div>
         </motion.section>
@@ -127,10 +127,10 @@ href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
             </h2>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
-              I&apos;ve shipped AI-powered historical lot insights in production
-              at Copart to improve seller decision-making, and built a working
-              RAG chatbot with Llama3, LangChain, and vector embeddings from
-              scratch.
+              Not just a PM who understands AI — I&apos;ve shipped
+              machine-learning-driven features into Copart&apos;s production
+              platform, and built a working RAG chatbot with Llama3,
+              LangChain, and vector embeddings from scratch.
             </p>
           </div>
         </motion.section>
