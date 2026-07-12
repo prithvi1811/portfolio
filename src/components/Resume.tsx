@@ -196,6 +196,8 @@ const skillColumns = [
       "Product Strategy",
       "Product Discovery",
       "Roadmapping & Prioritization",
+      "RICE Scoring",
+      "MoSCoW Method",
       "MVP Definition",
       "Product Lifecycle",
       "Agile & Scrum",
