@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, MotionValue, useTransform } from "framer-motion";
+import DemoPicker from "./DemoPicker";
 
 interface OverlayProps {
   scrollYProgress: MotionValue<number>;
@@ -83,14 +84,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
                 Download Resume
               </Link>
 
-              <Link
-href="https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
-              >
-                View AI Demo
-              </Link>
+              <DemoPicker />
             </div>
           </div>
         </motion.section>
