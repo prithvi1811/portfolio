@@ -16,7 +16,7 @@ const demos: Demo[] = [
     href: "https://app-repo-ai-chatbot-6eqxjdot9kmeyukobcteth.streamlit.app/",
   },
   {
-    name: "EOB Explainer",
+    name: "Explanation of Benefits Explainer",
     description:
       "Reads a medical bill (text, photo, or PDF) with Claude, flags billing errors, and explains what you owe in plain English.",
     href: "https://eob-explainer.vercel.app",

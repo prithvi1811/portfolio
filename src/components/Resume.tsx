@@ -98,14 +98,14 @@ const selectedWork = [
     linkLabel: "View GitHub",
   },
   {
-    title: "EOB Explainer",
+    title: "Explanation of Benefits Explainer",
     period: "Personal Project · 2026",
     metric: "Claude API · Structured Outputs · Vision",
     metricColor: "text-blue-300",
     summary:
       "Built an AI tool that reads medical bills and explains what you owe and why, catching billing errors most people would never spot on their own.",
     details: [
-      "Problem: Medical bills and insurance EOBs are deliberately hard to audit. Duplicate charges, denials with no reason given, and math that doesn't reconcile go unnoticed because nobody teaches people how to read this paperwork.",
+      "Problem: Medical bills and insurance Explanation of Benefits statements are deliberately hard to audit. Duplicate charges, denials with no reason given, and math that doesn't reconcile go unnoticed because nobody teaches people how to read this paperwork.",
       "Solution: Built a tool that extracts every line item from a bill into a structured format, checks it against a set of known billing-error patterns, and explains the result in plain English with specific questions to ask the provider or insurer.",
       "Implementation: Used Claude's structured outputs to guarantee well-formed extraction instead of parsing freeform text, and Claude's native vision to read an uploaded photo or PDF directly, no separate OCR step needed. Built a synthetic test set with known injected errors and an eval script to measure flag accuracy before shipping.",
       "Impact: Shipped end to end, including a public deployment with per-IP rate limiting to control API costs. The eval suite catches four distinct billing-error patterns with zero false positives on the clean control sample.",
