@@ -22,6 +22,12 @@ const demos: Demo[] = [
       "Reads a medical bill (text, photo, or PDF) with Claude, flags billing errors, and explains what you owe in plain English.",
     href: "https://eob-explainer.vercel.app",
   },
+  {
+    name: "AI PM Prompt Library",
+    description:
+      "Prompt-engineering case study and n8n workflows that automate repetitive PM tasks — user story generation and meeting recaps.",
+    href: "https://github.com/prithvi1811/ai-pm-prompt-library",
+  },
 ];
 
 function ChatIcon() {
@@ -46,7 +52,17 @@ function ReceiptIcon() {
   );
 }
 
-const icons = [ChatIcon, ReceiptIcon];
+function WorkflowIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
+      <rect x="3.5" y="4" width="6" height="5" rx="1" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="14.5" y="15" width="6" height="5" rx="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M9.5 6.5h4a2 2 0 0 1 2 2v6a2 2 0 0 0 2 2h.5M6.5 9v6a2 2 0 0 0 2 2h.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+const icons = [ChatIcon, ReceiptIcon, WorkflowIcon];
 
 export default function DemoPicker() {
   const [open, setOpen] = useState(false);
@@ -88,7 +104,7 @@ export default function DemoPicker() {
               <div>
                 <h3 className="text-lg font-semibold text-white">Pick a demo</h3>
                 <p className="mt-1 text-sm text-zinc-400">
-                  Two working AI products, both built end to end.
+                  AI products and workflows, built end to end.
                 </p>
               </div>
               <button
