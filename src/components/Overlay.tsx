@@ -1,23 +1,25 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion, MotionValue, useTransform } from "framer-motion";
+import { motion, MotionValue, useMotionValueEvent, useTransform } from "framer-motion";
 import DemoPicker from "./DemoPicker";
+import CountUp from "./CountUp";
 
 interface OverlayProps {
   scrollYProgress: MotionValue<number>;
 }
 
 const metrics = [
-  { value: "20", label: "Carrier Integrations" },
-  { value: "100K+", label: "Lots Onboarded" },
-  { value: "1M+", label: "Inventory Units Added" },
-  { value: "30%", label: "Account Revenue Lift" },
+  { value: 20, suffix: "", label: "Carrier Integrations" },
+  { value: 100, suffix: "K+", label: "Lots Onboarded" },
+  { value: 1, suffix: "M+", label: "Inventory Units Added" },
+  { value: 30, suffix: "%", label: "Account Revenue Lift" },
 ];
 
 function LabelTag({ text }: { text: string }) {
   return (
-    <div className="inline-flex items-center rounded-full border border-zinc-200 bg-white/70 px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-500 backdrop-blur-sm">
+    <div className="inline-flex items-center rounded-full border border-zinc-200 bg-white/70 px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] text-zinc-500 backdrop-blur-sm sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.2em]">
       {text}
     </div>
   );
@@ -26,6 +28,11 @@ function LabelTag({ text }: { text: string }) {
 export default function Overlay({ scrollYProgress }: OverlayProps) {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.18, 0.28], [1, 1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 0.28], [0, -80]);
+
+  const [heroActive, setHeroActive] = useState(true);
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setHeroActive(latest < 0.15);
+  });
 
   const secondOpacity = useTransform(
     scrollYProgress,
@@ -46,36 +53,36 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
       <div className="relative h-full w-full">
         <motion.section
           style={{ opacity: heroOpacity, y: heroY }}
-          className="absolute inset-0 flex items-center justify-center px-6 pb-24 md:pb-0"
+          className="absolute inset-0 flex items-start justify-center px-6 pb-24 pt-16 sm:pt-20 md:items-center md:pb-0 md:pt-0"
         >
           <div className="pointer-events-auto mx-auto max-w-6xl text-center">
             <LabelTag text="B2B Marketplace · Seller Integrations · AI Products" />
 
-            <h1 className="mt-6 text-5xl font-semibold tracking-tight text-zinc-900 sm:text-7xl">
+            <h1 className="mt-4 text-5xl font-semibold tracking-tight text-zinc-900 sm:mt-6 sm:text-7xl">
               Prithvi Chauhan
             </h1>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-600 sm:text-xl">
+            <p className="mx-auto mt-4 max-w-3xl text-lg leading-8 text-zinc-600 sm:mt-6 sm:text-xl">
               I ship B2B marketplace platforms — leading seller integrations,
               AI-powered insights, and automation that scales global
               operations.
             </p>
 
-            <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="mx-auto mt-6 grid max-w-4xl grid-cols-2 gap-4 sm:mt-10 sm:grid-cols-4">
               {metrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="rounded-2xl border border-zinc-200 bg-white/90 p-5 shadow-sm backdrop-blur-md"
+                  className="rounded-2xl border border-zinc-200 bg-white/90 p-4 shadow-sm backdrop-blur-md sm:p-5"
                 >
                   <div className="text-2xl font-semibold text-zinc-900">
-                    {metric.value}
+                    <CountUp to={metric.value} suffix={metric.suffix} active={heroActive} />
                   </div>
                   <div className="mt-1 text-sm text-zinc-500">{metric.label}</div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:mt-10">
               <Link
                 href="/resume/Prithvi_Chauhan-A.pdf"
                 target="_blank"
