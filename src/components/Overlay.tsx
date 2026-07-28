@@ -17,7 +17,7 @@ const metrics = [
 
 function LabelTag({ text }: { text: string }) {
   return (
-    <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-300 backdrop-blur-sm">
+    <div className="inline-flex items-center rounded-full border border-zinc-200 bg-white/70 px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-500 backdrop-blur-sm">
       {text}
     </div>
   );
@@ -46,16 +46,16 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
       <div className="relative h-full w-full">
         <motion.section
           style={{ opacity: heroOpacity, y: heroY }}
-          className="absolute inset-0 flex items-center justify-center px-6"
+          className="absolute inset-0 flex items-center justify-center px-6 pb-24 md:pb-0"
         >
           <div className="pointer-events-auto mx-auto max-w-6xl text-center">
             <LabelTag text="B2B Marketplace · Seller Integrations · AI Products" />
 
-            <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+            <h1 className="mt-6 text-5xl font-semibold tracking-tight text-zinc-900 sm:text-7xl">
               Prithvi Chauhan
             </h1>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-600 sm:text-xl">
               I ship B2B marketplace platforms — leading seller integrations,
               AI-powered insights, and automation that scales global
               operations.
@@ -65,12 +65,12 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
               {metrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="rounded-2xl border border-white/10 bg-zinc-900/80 p-5 backdrop-blur-md"
+                  className="rounded-2xl border border-zinc-200 bg-white/90 p-5 shadow-sm backdrop-blur-md"
                 >
-                  <div className="text-2xl font-semibold text-white">
+                  <div className="text-2xl font-semibold text-zinc-900">
                     {metric.value}
                   </div>
-                  <div className="mt-1 text-sm text-zinc-400">{metric.label}</div>
+                  <div className="mt-1 text-sm text-zinc-500">{metric.label}</div>
                 </div>
               ))}
             </div>
@@ -79,7 +79,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
               <Link
                 href="/resume/Prithvi_Chauhan-A.pdf"
                 target="_blank"
-                className="inline-flex items-center rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition hover:opacity-90"
+                className="inline-flex items-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-700"
               >
                 Download Resume
               </Link>
@@ -91,16 +91,16 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
         <motion.section
           style={{ opacity: secondOpacity, y: secondY }}
-          className="absolute inset-0 flex items-center justify-center px-6"
+          className="absolute inset-0 flex items-center justify-center px-6 pb-24 md:pb-0"
         >
           <div className="mx-auto max-w-4xl text-center">
             <LabelTag text="Marketplace · Enterprise Integrations · International Scale" />
 
-            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-6xl">
               Turning ambiguous problems into shipped, measurable features
             </h2>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-600 sm:text-xl">
               From launching MAO 2.0 in the UK to automating bid-limit logic
               across UAE, Oman, and Bahrain — I own the full product
               lifecycle end-to-end.
@@ -110,17 +110,17 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
         <motion.section
           style={{ opacity: thirdOpacity, y: thirdY }}
-          className="absolute inset-0 flex items-center justify-center px-6"
+          className="absolute inset-0 flex items-center justify-center px-6 pb-24 md:pb-0"
         >
           <div className="mx-auto max-w-4xl text-center">
             <LabelTag text="LLMs · RAG · Vector Search · LangChain" />
 
-            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+            <h2 className="mt-6 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-6xl">
               Building AI-native product systems with hands-on prototyping
               experience
             </h2>
 
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-300 sm:text-xl">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-zinc-600 sm:text-xl">
               Not just a PM who understands AI — I&apos;ve shipped
               machine-learning-driven features into Copart&apos;s production
               platform, and built a working RAG chatbot with Llama3,

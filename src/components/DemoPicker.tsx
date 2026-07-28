@@ -86,7 +86,7 @@ export default function DemoPicker() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex items-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+        className="inline-flex items-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100"
       >
         View AI Demo
       </button>
@@ -97,13 +97,19 @@ export default function DemoPicker() {
           onClick={() => setOpen(false)}
         >
           <div
-            className="w-full max-w-lg rounded-2xl border border-white/10 bg-zinc-900/95 p-6 backdrop-blur-md sm:p-8"
+            className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-zinc-200 bg-white/95 p-6 text-left shadow-2xl shadow-black/40 backdrop-blur-md sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mb-6 flex items-start justify-between">
+            <div
+              className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.06]"
+              style={{ backgroundImage: "url(/bg/ai1.jpg)" }}
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-white/95 to-white" />
+
+            <div className="relative mb-6 flex items-start justify-between">
               <div>
-                <h3 className="text-lg font-semibold text-white">Pick a demo</h3>
-                <p className="mt-1 text-sm text-zinc-400">
+                <h3 className="text-lg font-semibold text-zinc-900">Pick a demo</h3>
+                <p className="mt-1 text-sm text-zinc-500">
                   AI products and workflows, built end to end.
                 </p>
               </div>
@@ -111,7 +117,7 @@ export default function DemoPicker() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close"
-                className="rounded-full p-1.5 text-zinc-400 transition hover:bg-white/10 hover:text-white"
+                className="rounded-full p-1.5 text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-900"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
                   <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
@@ -119,7 +125,7 @@ export default function DemoPicker() {
               </button>
             </div>
 
-            <div className="space-y-3">
+            <div className="relative space-y-3">
               {demos.map((demo, i) => {
                 const Icon = icons[i];
                 return (
@@ -129,25 +135,25 @@ export default function DemoPicker() {
                     target="_blank"
                     rel="noreferrer"
                     onClick={() => setOpen(false)}
-                    className="group flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10"
+                    className="group flex items-start gap-3 rounded-xl border border-zinc-200 bg-zinc-50 p-4 transition hover:border-zinc-300 hover:bg-zinc-100"
                   >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-zinc-300 group-hover:text-white">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zinc-200/70 text-zinc-600 group-hover:text-zinc-900">
                       <Icon />
                     </span>
-                    <span>
-                      <span className="flex items-center gap-1.5 text-sm font-medium text-white">
+                    <span className="text-left">
+                      <span className="flex items-center gap-1.5 text-sm font-medium text-zinc-900">
                         {demo.name}
                         <svg
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
                           strokeWidth={1.5}
-                          className="h-3.5 w-3.5 text-zinc-500 transition group-hover:text-zinc-300"
+                          className="h-3.5 w-3.5 text-zinc-400 transition group-hover:text-zinc-600"
                         >
                           <path d="M7 17 17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
-                      <span className="mt-1 block text-xs leading-5 text-zinc-400">
+                      <span className="mt-1 block text-left text-xs leading-5 text-zinc-500">
                         {demo.description}
                       </span>
                     </span>

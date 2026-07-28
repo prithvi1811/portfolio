@@ -1,4 +1,26 @@
 import Link from "next/link";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
+import type { ReactNode } from "react";
+
+function highlight(text: string, terms: string[]): ReactNode[] {
+  if (terms.length === 0) return [text];
+  const pattern = new RegExp(
+    `(${terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
+    "g"
+  );
+  return text
+    .split(pattern)
+    .filter((part) => part.length > 0)
+    .map((part, i) =>
+      terms.includes(part) ? (
+        <strong key={i} className="font-semibold text-zinc-900">
+          {part}
+        </strong>
+      ) : (
+        part
+      )
+    );
+}
 
 const experience = [
   {
@@ -7,13 +29,34 @@ const experience = [
     location: "Dallas, TX",
     period: "Mar 2023–Present",
     bullets: [
-      "Led end-to-end seller integration strategy for 20 insurance carriers in 6 months, expanding inventory by 100,000+ lots across the U.S. and Canada through data-driven product management and cross-functional execution.",
-      "Partnered with engineering, QA, and design to translate business needs into product requirements, prioritize backlogs, and ship marketplace workflows with minimal guidance across backend and API-dependent surfaces.",
-      "Delivered AI-powered historical lot insights using machine learning signals and quantitative analysis, improving seller decision-making and contributing to a 1 million-unit increase in platform inventory.",
-      "Built automated bid-limit logic across UAE, Oman, and Bahrain using country-specific rules and HTTP-based currency conversion, eliminating 5+ hours of manual operational work each day.",
-      "Launched MAO 2.0 for the UK market, creating a structured seller experience for reviewing, negotiating, and accepting pre-auction offers across the full product lifecycle.",
-      "Implemented Google Analytics and FullStory across buyer and seller portals, enabling UI-centric analysis, testing, experimentation, and roadmap prioritization based on behavioral data.",
-      "Delivered a custom buyer configuration in 2 weeks for the largest customer account, increasing revenue from that account by 30% and strengthening go-to-market execution.",
+      {
+        text: "Led end-to-end seller integration strategy for 20 insurance carriers in 6 months, expanding inventory by 100,000+ lots across the U.S. and Canada through data-driven product management and cross-functional execution.",
+        bold: ["20 insurance carriers in 6 months", "100,000+ lots"],
+      },
+      {
+        text: "Partnered with engineering, QA, and design to translate business needs into product requirements, prioritize backlogs, and ship marketplace workflows with minimal guidance across backend and API-dependent surfaces.",
+        bold: [],
+      },
+      {
+        text: "Delivered AI-powered historical lot insights using machine learning signals and quantitative analysis, improving seller decision-making and contributing to a 1 million-unit increase in platform inventory.",
+        bold: ["AI-powered historical lot insights", "1 million-unit increase"],
+      },
+      {
+        text: "Built automated bid-limit logic across UAE, Oman, and Bahrain using country-specific rules and HTTP-based currency conversion, eliminating 5+ hours of manual operational work each day.",
+        bold: ["UAE, Oman, and Bahrain", "eliminating 5+ hours of manual operational work each day"],
+      },
+      {
+        text: "Launched MAO 2.0 for the UK market, creating a structured seller experience for reviewing, negotiating, and accepting pre-auction offers across the full product lifecycle.",
+        bold: ["MAO 2.0 for the UK market"],
+      },
+      {
+        text: "Implemented Google Analytics and FullStory across buyer and seller portals, enabling UI-centric analysis, testing, experimentation, and roadmap prioritization based on behavioral data.",
+        bold: ["Google Analytics and FullStory"],
+      },
+      {
+        text: "Delivered a custom buyer configuration in 2 weeks for the largest customer account, increasing revenue from that account by 30% and strengthening go-to-market execution.",
+        bold: ["in 2 weeks", "increasing revenue from that account by 30%"],
+      },
     ],
   },
   {
@@ -22,10 +65,22 @@ const experience = [
     location: "Mumbai, India",
     period: "Nov 2019–Nov 2021",
     bullets: [
-      "Analyzed sales performance across India to identify underperforming regions and recommended targeted go-to-market actions that increased sales by 30%.",
-      "Collaborated with business intelligence engineers to define quantitative metrics, build dashboards, and provide leadership with real-time visibility into regional performance.",
-      "Developed the business case for bringing enterprise sanitization operations in-house, reducing operating costs by approximately USD 200,000 per quarter.",
-      "Partnered with leadership on regional sales planning, segmentation, and prioritization to improve execution across commercial channels and support revenue growth.",
+      {
+        text: "Analyzed sales performance across India to identify underperforming regions and recommended targeted go-to-market actions that increased sales by 30%.",
+        bold: ["increased sales by 30%"],
+      },
+      {
+        text: "Collaborated with business intelligence engineers to define quantitative metrics, build dashboards, and provide leadership with real-time visibility into regional performance.",
+        bold: [],
+      },
+      {
+        text: "Developed the business case for bringing enterprise sanitization operations in-house, reducing operating costs by approximately USD 200,000 per quarter.",
+        bold: ["reducing operating costs by approximately USD 200,000 per quarter"],
+      },
+      {
+        text: "Partnered with leadership on regional sales planning, segmentation, and prioritization to improve execution across commercial channels and support revenue growth.",
+        bold: [],
+      },
     ],
   },
 ];
@@ -293,11 +348,11 @@ function SectionTitle({
   return (
     <div className="mb-8">
       <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-400">
+        <p className="mt-3 max-w-3xl text-base leading-7 text-zinc-500">
           {description}
         </p>
       ) : null}
@@ -307,9 +362,9 @@ function SectionTitle({
 
 export default function Resume() {
   return (
-    <section className="bg-[#121212] px-6 py-24 text-zinc-200 sm:px-8 lg:px-12">
+    <section className="bg-white px-6 py-24 text-zinc-700 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl space-y-20">
-        <div>
+        <div id="experience">
           <SectionTitle
             eyebrow="Career"
             title="Experience"
@@ -320,23 +375,23 @@ export default function Resume() {
             {experience.map((item) => (
               <div
                 key={`${item.company}-${item.role}`}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 transition hover:border-zinc-300"
               >
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-xl font-semibold text-zinc-900">
                       {item.role} · {item.company}
                     </h3>
-                    <p className="mt-1 text-sm text-zinc-400">{item.location}</p>
+                    <p className="mt-1 text-sm text-zinc-500">{item.location}</p>
                   </div>
                   <p className="text-sm text-zinc-500">{item.period}</p>
                 </div>
 
-                <ul className="mt-5 space-y-3 text-sm leading-7 text-zinc-300">
+                <ul className="mt-5 space-y-3 text-sm leading-7 text-zinc-600">
                   {item.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-3">
+                    <li key={bullet.text} className="flex gap-3">
                       <span className="mt-[10px] h-1.5 w-1.5 rounded-full bg-zinc-500" />
-                      <span>{bullet}</span>
+                      <span>{highlight(bullet.text, bullet.bold)}</span>
                     </li>
                   ))}
                 </ul>
@@ -345,7 +400,7 @@ export default function Resume() {
           </div>
         </div>
 
-        <div>
+        <div id="work">
           <SectionTitle
             eyebrow="Portfolio"
             title="Selected Work"
@@ -356,22 +411,22 @@ export default function Resume() {
             {selectedWork.map((project) => (
               <div
                 key={project.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 shadow-sm transition hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 shadow-sm transition hover:border-zinc-300"
               >
                 <div>
-                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                  <p className="mt-1 text-sm text-zinc-400">{project.period}</p>
+                  <h3 className="text-xl font-semibold text-zinc-900">{project.title}</h3>
+                  <p className="mt-1 text-sm text-zinc-500">{project.period}</p>
                 </div>
 
                 <p className={`mt-4 text-sm font-medium ${project.metricColor}`}>
                   {project.metric}
                 </p>
 
-                <p className="mt-4 text-sm leading-7 text-zinc-200">
+                <p className="mt-4 text-sm leading-7 text-zinc-700">
                   {project.summary}
                 </p>
 
-                <div className="mt-4 space-y-3 text-sm leading-7 text-zinc-400">
+                <div className="mt-4 space-y-3 text-sm leading-7 text-zinc-500">
                   {project.details.map((detail) => (
                     <p key={detail}>{detail}</p>
                   ))}
@@ -381,7 +436,7 @@ export default function Resume() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-xs text-zinc-300"
+                      className="rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1 text-xs text-zinc-600"
                     >
                       {tag}
                     </span>
@@ -405,7 +460,7 @@ export default function Resume() {
           </div>
         </div>
 
-        <div>
+        <div id="approach">
           <SectionTitle
             eyebrow="Marketplace Thinking"
             title="How I Approach Marketplace Product"
@@ -415,10 +470,10 @@ export default function Resume() {
             {marketplaceStrategy.map((card) => (
               <div
                 key={card.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 transition hover:border-zinc-300"
               >
-                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                <h3 className="text-lg font-semibold text-zinc-900">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-500">
                   {card.description}
                 </p>
               </div>
@@ -436,10 +491,10 @@ export default function Resume() {
             {productMethodology.map((card) => (
               <div
                 key={card.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 transition hover:border-zinc-300"
               >
-                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                <h3 className="text-lg font-semibold text-zinc-900">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-500">
                   {card.description}
                 </p>
               </div>
@@ -458,10 +513,10 @@ export default function Resume() {
             {learnings.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 transition hover:border-zinc-300"
               >
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                <h3 className="text-lg font-semibold text-zinc-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-500">
                   {item.description}
                 </p>
                 <p className="mt-4 text-xs text-zinc-500">{item.context}</p>
@@ -480,10 +535,10 @@ export default function Resume() {
             {aiCards.map((card) => (
               <div
                 key={card.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 transition hover:border-zinc-300"
               >
-                <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">
+                <h3 className="text-lg font-semibold text-zinc-900">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-500">
                   {card.description}
                 </p>
               </div>
@@ -491,17 +546,17 @@ export default function Resume() {
           </div>
         </div>
 
-        <div>
+        <div id="skills">
           <SectionTitle eyebrow="Capabilities" title="Skills" />
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {skillColumns.map((column) => (
               <div
                 key={column.title}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 transition hover:border-zinc-300"
               >
-                <h3 className="text-lg font-semibold text-white">{column.title}</h3>
-                <ul className="mt-4 space-y-3 text-sm text-zinc-300">
+                <h3 className="text-lg font-semibold text-zinc-900">{column.title}</h3>
+                <ul className="mt-4 space-y-3 text-sm text-zinc-600">
                   {column.skills.map((skill) => (
                     <li key={skill}>{skill}</li>
                   ))}
@@ -518,10 +573,10 @@ export default function Resume() {
             {education.map((item) => (
               <div
                 key={item.school}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-6 transition hover:border-zinc-700"
+                className="rounded-xl border border-zinc-200 bg-zinc-50 p-6 transition hover:border-zinc-300"
               >
-                <h3 className="text-lg font-semibold text-white">{item.school}</h3>
-                <p className="mt-2 text-sm text-zinc-300">{item.degree}</p>
+                <h3 className="text-lg font-semibold text-zinc-900">{item.school}</h3>
+                <p className="mt-2 text-sm text-zinc-600">{item.degree}</p>
                 <p className="mt-1 text-sm text-zinc-500">{item.period}</p>
               </div>
             ))}
@@ -535,7 +590,7 @@ export default function Resume() {
             {certifications.map((cert) => (
               <span
                 key={cert}
-                className="rounded-full border border-zinc-700 bg-zinc-900/70 px-4 py-2 text-sm text-zinc-300"
+                className="rounded-full border border-zinc-200 bg-zinc-100 px-4 py-2 text-sm text-zinc-600"
               >
                 {cert}
               </span>
@@ -543,27 +598,62 @@ export default function Resume() {
           </div>
         </div>
 
-        <footer className="flex flex-col items-start justify-between gap-4 border-t border-zinc-800 pt-8 text-sm text-zinc-400 sm:flex-row sm:items-center">
-          <p>Prithvi Chauhan</p>
+        <footer id="contact">
+          <SectionTitle
+            eyebrow="Get In Touch"
+            title="Contact"
+            description="Open to Product Manager, Product Owner (PO), Business Analyst (BA), Business Intelligence Engineer (BIE), and Product Analyst roles in marketplace, B2B platforms, and AI-native products."
+          />
 
-          <div className="flex items-center gap-6">
-            <Link
-              href="https://github.com/prithvi1811"
-              target="_blank"
-              rel="noreferrer"
-              className="transition hover:text-white"
-            >
-              GitHub
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/prithvishaktichauhan/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition hover:text-white"
-            >
-              LinkedIn
-            </Link>
+          <div className="relative z-30 overflow-hidden rounded-3xl bg-zinc-900 px-8 py-14 text-center sm:px-16 sm:py-20">
+            <h3 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Let&apos;s build something worth shipping
+            </h3>
+            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-zinc-400">
+              The fastest way to reach me is email — happy to talk about product roles,
+              marketplace strategy, or the AI projects above.
+            </p>
+
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href="/resume/Prithvi_Chauhan-A.pdf"
+                target="_blank"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-zinc-900 transition hover:opacity-90"
+              >
+                <Download className="h-4 w-4" />
+                Download Resume
+              </Link>
+              <Link
+                href="mailto:prithvi.shaktichauhan@gmail.com"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+              >
+                <Mail className="h-4 w-4" />
+                Email
+              </Link>
+              <Link
+                href="https://github.com/prithvi1811"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+              >
+                <Github className="h-4 w-4" />
+                GitHub
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/prithvishaktichauhan/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+              >
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
+              </Link>
+            </div>
           </div>
+
+          <p className="mt-8 text-center text-xs text-zinc-400">
+            © {new Date().getFullYear()} Prithvi Chauhan
+          </p>
         </footer>
       </div>
     </section>
