@@ -46,8 +46,8 @@ const experience = [
         bold: ["UAE, Oman, and Bahrain", "eliminating 5+ hours of manual operational work each day"],
       },
       {
-        text: "Launched MAO 2.0 for the UK market, creating a structured seller experience for reviewing, negotiating, and accepting pre-auction offers across the full product lifecycle.",
-        bold: ["MAO 2.0 for the UK market"],
+        text: "Launched Make an Offer (MAO) 2.0 for the UK market, creating a structured seller experience for reviewing, negotiating, and accepting pre-auction offers across the full product lifecycle.",
+        bold: ["Make an Offer (MAO) 2.0 for the UK market"],
       },
       {
         text: "Implemented Google Analytics and FullStory across buyer and seller portals, enabling UI-centric analysis, testing, experimentation, and roadmap prioritization based on behavioral data.",
