@@ -30,32 +30,24 @@ const experience = [
     period: "Mar 2023–Present",
     bullets: [
       {
-        text: "Led end-to-end seller integration strategy for 20 insurance carriers in 6 months, expanding inventory by 100,000+ lots across the U.S. and Canada through data-driven product management and cross-functional execution.",
-        bold: ["20 insurance carriers in 6 months", "100,000+ lots"],
+        text: "Directed cross-functional development with a 15-member team to launch Guidewire integrations for 20 carriers, tracking location inventory to scale capacity by 100,000+ vehicle lots quarterly.",
+        bold: ["15-member team", "20 carriers", "100,000+ vehicle lots quarterly"],
       },
       {
-        text: "Partnered with engineering, QA, and design to translate business needs into product requirements, prioritize backlogs, and ship marketplace workflows with minimal guidance across backend and API-dependent surfaces.",
+        text: "Formulated multi-quarter roadmaps and product specifications for cross-border conversions, defining KPIs and acceptance criteria to align field operations with real-world lot pricing.",
         bold: [],
       },
       {
-        text: "Delivered AI-powered historical lot insights using machine learning signals and quantitative analysis, improving seller decision-making and contributing to a 1 million-unit increase in platform inventory.",
-        bold: ["AI-powered historical lot insights", "1 million-unit increase"],
+        text: "Engineered an internal developer platform assistant, cutting doc search time from 1 week to 2 days while achieving 100% adoption and feature utilization across engineering.",
+        bold: ["cutting doc search time from 1 week to 2 days", "100% adoption"],
       },
       {
-        text: "Built automated bid-limit logic across UAE, Oman, and Bahrain using country-specific rules and HTTP-based currency conversion, eliminating 5+ hours of manual operational work each day.",
-        bold: ["UAE, Oman, and Bahrain", "eliminating 5+ hours of manual operational work each day"],
+        text: "Pioneered automated data-sharing controls across the product lifecycle, eliminating 5+ hours daily of manual effort and yielding $700,000 in annual operational cost savings for the business.",
+        bold: ["eliminating 5+ hours daily of manual effort", "$700,000 in annual operational cost savings"],
       },
       {
-        text: "Launched MAO 2.0 for the UK market, creating a structured seller experience for reviewing, negotiating, and accepting pre-auction offers across the full product lifecycle.",
-        bold: ["MAO 2.0 for the UK market"],
-      },
-      {
-        text: "Implemented Google Analytics and FullStory across buyer and seller portals, enabling UI-centric analysis, testing, experimentation, and roadmap prioritization based on behavioral data.",
-        bold: ["Google Analytics and FullStory"],
-      },
-      {
-        text: "Delivered a custom buyer configuration in 2 weeks for the largest customer account, increasing revenue from that account by 30% and strengthening go-to-market execution.",
-        bold: ["in 2 weeks", "increasing revenue from that account by 30%"],
+        text: "Navigated cross-functional stakeholder alignments across MEA, Europe, and UK markets, conducting user research and usability testing to elevate customer satisfaction from 78% to 91%.",
+        bold: ["MEA, Europe, and UK markets", "customer satisfaction from 78% to 91%"],
       },
     ],
   },
@@ -66,20 +58,24 @@ const experience = [
     period: "Nov 2019–Nov 2021",
     bullets: [
       {
-        text: "Analyzed sales performance across India to identify underperforming regions and recommended targeted go-to-market actions that increased sales by 30%.",
-        bold: ["increased sales by 30%"],
+        text: "Spearheaded an operational feasibility study to transition facility sanitization in-house, analyzing vendor management workflows to reclaim $400,000 in annual external vendor expenditure.",
+        bold: ["$400,000 in annual external vendor expenditure"],
       },
       {
-        text: "Collaborated with business intelligence engineers to define quantitative metrics, build dashboards, and provide leadership with real-time visibility into regional performance.",
-        bold: [],
+        text: "Engineered automated performance dashboards with BI teams, cutting monthly reporting from 25 to 10 hours while establishing KPIs to enhance executive visibility across international sites.",
+        bold: ["cutting monthly reporting from 25 to 10 hours"],
       },
       {
-        text: "Developed the business case for bringing enterprise sanitization operations in-house, reducing operating costs by approximately USD 200,000 per quarter.",
-        bold: ["reducing operating costs by approximately USD 200,000 per quarter"],
+        text: "Evaluated market trends and regional performance data across underperforming territories to formulate strategic resource reallocations, successfully boosting regional revenue by 30%.",
+        bold: ["boosting regional revenue by 30%"],
       },
       {
-        text: "Partnered with leadership on regional sales planning, segmentation, and prioritization to improve execution across commercial channels and support revenue growth.",
-        bold: [],
+        text: "Launched a centralized analytics platform across regional teams, unifying multi-source location data streams to accelerate decision speed by 40% and save 15+ hours monthly in reconciliation.",
+        bold: ["accelerate decision speed by 40%", "save 15+ hours monthly in reconciliation"],
+      },
+      {
+        text: "Standardized platform data documentation and reporting frameworks across regional sales and BI teams, improving cross-departmental alignment and reducing data errors by 20%.",
+        bold: ["reducing data errors by 20%"],
       },
     ],
   },
