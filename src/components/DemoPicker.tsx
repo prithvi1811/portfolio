@@ -28,6 +28,12 @@ const demos: Demo[] = [
       "Prompt-engineering case study and n8n workflows that automate repetitive PM tasks — user story generation and meeting recaps.",
     href: "https://github.com/prithvi1811/ai-pm-prompt-library",
   },
+  {
+    name: "Subscription Tracker",
+    description:
+      "Signs in with Google, scans Gmail for subscription receipts with Claude, and emails a digest before renewals hit your card.",
+    href: "https://subscription-tracker-web-phi.vercel.app",
+  },
 ];
 
 function ChatIcon() {
@@ -62,7 +68,16 @@ function WorkflowIcon() {
   );
 }
 
-const icons = [ChatIcon, ReceiptIcon, WorkflowIcon];
+function BellIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-5 w-5">
+      <path d="M6 10a6 6 0 1 1 12 0c0 3.2 1 5 1.8 6H4.2C5 15 6 13.2 6 10Z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10 19a2 2 0 0 0 4 0" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+const icons = [ChatIcon, ReceiptIcon, WorkflowIcon, BellIcon];
 
 export default function DemoPicker() {
   const [open, setOpen] = useState(false);
