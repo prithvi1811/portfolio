@@ -25,6 +25,7 @@ function highlight(text: string, terms: string[]): ReactNode[] {
 const experience = [
   {
     company: "Copart",
+    companyBlurb: "Global online vehicle auction and remarketing marketplace for insurers, dealers, and buyers.",
     role: "Product Manager",
     location: "Dallas, TX",
     period: "Mar 2023–Present",
@@ -53,6 +54,7 @@ const experience = [
   },
   {
     company: "Cipla Ltd.",
+    companyBlurb: "Global pharmaceutical company manufacturing and distributing medicines across 80+ countries.",
     role: "Business Analyst",
     location: "Mumbai, India",
     period: "Nov 2019–Nov 2021",
@@ -379,6 +381,7 @@ export default function Resume() {
                       {item.role} · {item.company}
                     </h3>
                     <p className="mt-1 text-sm text-zinc-500">{item.location}</p>
+                    <p className="mt-1 text-sm italic text-zinc-500">{item.companyBlurb}</p>
                   </div>
                   <p className="text-sm text-zinc-500">{item.period}</p>
                 </div>
