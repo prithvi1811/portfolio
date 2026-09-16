@@ -50,6 +50,10 @@ const experience = [
         text: "Navigated cross-functional stakeholder alignments across MEA, Europe, and UK markets, conducting user research and usability testing to elevate customer satisfaction from 78% to 91%.",
         bold: ["MEA, Europe, and UK markets", "customer satisfaction from 78% to 91%"],
       },
+      {
+        text: "Built and maintained Alteryx workflows and Dataiku DSS recipes to automate data ingestion, blending, and validation across marketplace and finance systems, replacing manual data-prep steps with repeatable pipelines feeding operational dashboards.",
+        bold: ["Alteryx workflows", "Dataiku DSS recipes"],
+      },
     ],
   },
   {
@@ -78,6 +82,10 @@ const experience = [
       {
         text: "Standardized platform data documentation and reporting frameworks across regional sales and BI teams, improving cross-departmental alignment and reducing data errors by 20%.",
         bold: ["reducing data errors by 20%"],
+      },
+      {
+        text: "Built Dataiku DSS projects and Alteryx workflows to blend and cleanse regional sales, logistics, and inventory data from SAP, Salesforce, and Oracle, standardizing recurring data-prep steps across international sites.",
+        bold: ["Dataiku DSS projects", "Alteryx workflows"],
       },
     ],
   },
@@ -308,6 +316,8 @@ const skillColumns = [
       "Power BI",
       "Guidewire",
       "Snowflake",
+      "Alteryx",
+      "Dataiku",
     ],
   },
 ];
@@ -366,7 +376,7 @@ export default function Resume() {
           <SectionTitle
             eyebrow="Career"
             title="Experience"
-            description="Marketplace, analytics, and enterprise platform work across product, operations, and decision systems."
+            description="Marketplace, analytics, and enterprise platform work across product, operations, and decision systems — including hands-on data engineering with Alteryx and Dataiku to automate ETL workflows."
           />
 
           <div className="space-y-6">
@@ -463,6 +473,7 @@ export default function Resume() {
           <SectionTitle
             eyebrow="Marketplace Thinking"
             title="How I Approach Marketplace Product"
+            description="Principles that guide how I evaluate liquidity, pricing, and growth trade-offs across two-sided marketplaces."
           />
 
           <div className="grid gap-6 sm:grid-cols-2">
@@ -484,6 +495,7 @@ export default function Resume() {
           <SectionTitle
             eyebrow="Process & Methodology"
             title="How I Ship Product"
+            description="The operating loop I default to — discovery, hypothesis-driven testing, cross-functional execution, and iteration."
           />
 
           <div className="grid gap-6 sm:grid-cols-2">
@@ -528,6 +540,7 @@ export default function Resume() {
           <SectionTitle
             eyebrow="AI Product Thinking"
             title="How I Think About AI Products"
+            description="What I look for before adding AI to a workflow, and how I judge whether it's actually working."
           />
 
           <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
@@ -546,7 +559,11 @@ export default function Resume() {
         </div>
 
         <div id="skills">
-          <SectionTitle eyebrow="Capabilities" title="Skills" />
+          <SectionTitle
+            eyebrow="Capabilities"
+            title="Skills"
+            description="Product, analytics, AI, and data engineering tools I use to ship and measure impact — including Alteryx and Dataiku for building and automating ETL workflows."
+          />
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {skillColumns.map((column) => (
@@ -566,7 +583,11 @@ export default function Resume() {
         </div>
 
         <div>
-          <SectionTitle eyebrow="Academics" title="Education" />
+          <SectionTitle
+            eyebrow="Academics"
+            title="Education"
+            description="Formal training in analytics and engineering that underpins the data and product work above."
+          />
 
           <div className="grid gap-6 md:grid-cols-2">
             {education.map((item) => (
@@ -583,7 +604,11 @@ export default function Resume() {
         </div>
 
         <div>
-          <SectionTitle eyebrow="Credentials" title="Certifications" />
+          <SectionTitle
+            eyebrow="Credentials"
+            title="Certifications"
+            description="Certifications backing my product, analytics, and data practice."
+          />
 
           <div className="flex flex-wrap gap-3">
             {certifications.map((cert) => (
