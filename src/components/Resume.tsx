@@ -640,7 +640,7 @@ export default function Resume() {
 
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link
-                href="/resume/Prithvi_Chauhan-A.pdf"
+                href="/resume/Prithvi_Chauhan.pdf"
                 target="_blank"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-zinc-900 transition hover:opacity-90"
               >

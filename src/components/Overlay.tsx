@@ -84,7 +84,7 @@ export default function Overlay({ scrollYProgress }: OverlayProps) {
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:mt-10">
               <Link
-                href="/resume/Prithvi_Chauhan-A.pdf"
+                href="/resume/Prithvi_Chauhan.pdf"
                 target="_blank"
                 className="inline-flex items-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-700"
               >
